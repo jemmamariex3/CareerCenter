@@ -5,7 +5,6 @@ import {Users} from "../views/Users";
 import {Cinthy} from "../views/Cinthy";
 import {Events} from "../views/Events";
 import {Multimedia} from "../views/Multimedia";
-import {Home} from "../views/Home";
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -51,7 +50,7 @@ export const MyTabs = createBottomTabNavigator({
         tabBarOptions: {
             showLabel: false,
             activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
+            inactiveTintColor: 'rgba(146,161,201,.3)',
             swipeEnabled: true,
             tabBarAccessibilityLabel: true
         }

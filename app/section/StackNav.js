@@ -10,6 +10,7 @@ import {Connections} from "./skillsContent/Connections";
 import {Readiness} from "./skillsContent/Readiness";
 import {Directions} from "./skillsContent/Directions";
 import {MyTabs} from "./TabNav";
+import {Pin} from "../views/Pin";
 
 export const LogoRT =  createStackNavigator({
     Users: {
@@ -35,6 +36,9 @@ export const LogoRT =  createStackNavigator({
     },
     DirectionsRT: {
         screen: Directions,
+    },
+    Pin: {
+        screen: Pin,
     },
     initialRouteName:'Users',
 });
