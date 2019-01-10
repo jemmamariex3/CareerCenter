@@ -15,10 +15,9 @@
     "react-native": "0.56.0",
     "react-native-fontawesome": "^5.7.0",
     "react-native-linear-gradient": "^2.4.0",
-    "react-native-modal": "^7.0.0",
+    "react-native-modal": "^7.0.2",
     "react-native-vector-icons": "^5.0.0",
-    "react-navigation": "^2.12.1",
-    "react-navigation-fluid-transitions": "^0.2.5"
+    "react-navigation": "^2.12.1"
   },
   "devDependencies": {
     "babel-jest": "23.4.2",
