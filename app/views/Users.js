@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchableOpacity,StatusBar,Platform, StyleSheet, Text, SafeAreaView,View, Image, Button, ScrollView} from 'react-native';
+import {TouchableOpacity,StatusBar,Platform, StyleSheet, Text, SafeAreaView,View, Image, Button, ScrollView, Dimensions} from 'react-native';
 import {MainLogo} from "../img/career_center_logo.png";
 import Modal from 'react-native-modal';
 import {Pin} from "./Pin";
@@ -59,16 +59,12 @@ export class Users extends Component<Props> {
                 animationInTiming={200}
                 animationOutTiming={200}
             >
-                <SafeAreaView style={styles.pinContainer}>
-                    <ScrollView style={styles.scrollContainer}>
-                        <Help/>
-                    </ScrollView>
-                    <Button
-                        title="Return to Menu"
-                        onPress={this._hideModal2}
-                        style={styles.exit}
-                    />
-                </SafeAreaView>
+                <Help/>
+                <Button
+                    title="Return to Menu"
+                    onPress={this._hideModal2}
+                    style={styles.exit}
+                />
 
             </Modal>
 
@@ -269,5 +265,6 @@ const styles = StyleSheet.create({
         padding: 0,
         width: 20,
         height: 20
-    }
+    },
+
 });
