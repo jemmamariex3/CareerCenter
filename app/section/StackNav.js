@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchOpacity} from 'react-native';
+import {TouchOpacity, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import Icon from "react-native-vector-icons/FontAwesome";
 
