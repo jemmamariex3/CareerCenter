@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     },
     textBox:{
         width: 331,
-        height: 95,
+        height: 120,
         marginTop: 40,
     },
 

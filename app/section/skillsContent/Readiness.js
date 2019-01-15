@@ -22,8 +22,8 @@ export class Readiness extends Component {
                         <Text/>
                         <Text style={styles.detail}>Bridging the gap between college and workplace can be overwhelming, and in today’s world of a constantly evolving job market, soft skills are becoming more</Text>
                         <Text style={styles.detail}>vital than ever. Companies are constantly looking towards a shifting economic future that requires the latest skills, both hard and soft.</Text>
-
-
+                        <Text/>
+                        <Text/>
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -54,9 +54,8 @@ const styles = StyleSheet.create({
     },
     textBox:{
         width: 331,
-        height: 95,
+        height: 450,
         marginTop: 40,
-        marginBottom: 40,
     },
 
     seGraphics1:{

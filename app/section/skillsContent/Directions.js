@@ -24,7 +24,6 @@ export class Directions extends Component {
                         <Text style={styles.detail}>you to new heights. There is a lot the Career Center has to offer, and we want you to feel comfortable taking advantage of all the resources we have available.</Text>
                         <Text/>
                         <Text style={styles.detail}>Remember, it’s not each piece, but the larger chain of choices that connects everything together and leads you to success.</Text>
-
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
     },
     textBox:{
         width: 332,
-        height: 600,
+        height: 500,
         marginTop: 40,
     },
 

@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     },
     textBox:{
         width: 331,
-        height: 95,
+        height: 400,
         marginTop: 40,
     },
 
