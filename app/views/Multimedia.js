@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, SafeAreaView, Text, View, ScrollView, Image} from 'react-native';
-import {createStackNavigator} from 'react-navigation'
-import {Header} from "../section/Header";
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // import {TabMenu} from "../section/TabMenu";

@@ -10,6 +10,7 @@ import {Connections} from "./skillsContent/Connections";
 import {Readiness} from "./skillsContent/Readiness";
 import {Directions} from "./skillsContent/Directions";
 import {MyTabs} from "./TabNav";
+import {LogoTitle} from "./LogoTitle";
 
 export const LogoRT =  createStackNavigator({
     Users: {
@@ -20,6 +21,13 @@ export const LogoRT =  createStackNavigator({
     },
     ExplorationRT: {
         screen: SelfExploration,
+        navigationOptions: () => ({
+            headerTitle: <LogoTitle/>,
+            headerBackTitle: 'Home',
+            headerStyle: {
+                backgroundColor: '#f4511e',
+            },
+        }),
     },
     CounselingRT: {
         screen: Counseling,

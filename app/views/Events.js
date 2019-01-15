@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, SafeAreaView, Text, View, ScrollView, Image,TouchableOpacity, Button} from 'react-native';
-import {createStackNavigator} from 'react-navigation'
-import {Header} from "../section/Header";
+
 
 // import {TabMenu} from "../section/TabMenu";
 const initialArr = [

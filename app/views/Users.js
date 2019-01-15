@@ -3,6 +3,7 @@ import {TouchableOpacity,StatusBar,Platform, StyleSheet, Text, SafeAreaView,View
 import {MainLogo} from "../img/career_center_logo.png";
 import Modal from 'react-native-modal';
 import {Pin} from "./Pin";
+import {Help} from "./Help";
 
 export class Users extends Component<Props> {
     static navigationOptions = {
@@ -11,25 +12,28 @@ export class Users extends Component<Props> {
     constructor(props) {
         super(props);
         this.state = {
-            isModalVisible: false
+            isModalVisible1: false,
+            isModalVisible2: false
         }
     }
-    _showModal = () => this.setState({ isModalVisible: true })
+    _showModal1 = () => this.setState({ isModalVisible1: true })
+    _hideModal1 = () => this.setState({ isModalVisible1: false })
 
-    _hideModal = () => this.setState({ isModalVisible: false })
+    _showModal2 = () => this.setState({ isModalVisible2: true })
+    _hideModal2 = () => this.setState({ isModalVisible2: false })
     render() {
         const { navigate } = this.props.navigation;
         return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-                <TouchableOpacity onPress={this._showModal}><Image style={styles.pin} source={require("../img/pin.png")}/></TouchableOpacity>
+                <TouchableOpacity onPress={this._showModal1}><Image style={styles.pin} source={require("../img/pin.png")}/></TouchableOpacity>
                 <Image style={styles.cclogo} source={require('../img/CC_logo.png')}/>
-                <TouchableOpacity onPress={() => navigate('ExplorationRT')}><Image style={styles.help} source={require("../img/help.png")}/></TouchableOpacity>
+                <TouchableOpacity onPress={this._showModal2}><Image style={styles.help} source={require("../img/help.png")}/></TouchableOpacity>
             </View>
             <Modal
-                isVisible={this.state.isModalVisible}
+                isVisible={this.state.isModalVisible1}
                 animationType = "fade"
-                onBackdropPress={() => this.setState({ isVisible: false })}
+                onBackdropPress={() => this.setState({ isVisible1: false })}
                 backdropOpacity={.50}
                 animationInTiming={200}
                 animationOutTiming={200}
@@ -40,7 +44,28 @@ export class Users extends Component<Props> {
                     </ScrollView>
                     <Button
                         title="Return to Menu"
-                        onPress={this._hideModal}
+                        onPress={this._hideModal1}
+                        style={styles.exit}
+                    />
+                </SafeAreaView>
+
+            </Modal>
+
+            <Modal
+                isVisible={this.state.isModalVisible2}
+                animationType = "fade"
+                onBackdropPress={() => this.setState({ isVisible2: false })}
+                backdropOpacity={.50}
+                animationInTiming={200}
+                animationOutTiming={200}
+            >
+                <SafeAreaView style={styles.pinContainer}>
+                    <ScrollView style={styles.scrollContainer}>
+                        <Help/>
+                    </ScrollView>
+                    <Button
+                        title="Return to Menu"
+                        onPress={this._hideModal2}
                         style={styles.exit}
                     />
                 </SafeAreaView>
