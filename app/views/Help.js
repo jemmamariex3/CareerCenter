@@ -105,7 +105,7 @@ export class Help extends Component {
     };
     render() {
         if (this.state.showRealApp) {
-            return <MyTabs />;
+            return null;
         }
         else {
             return <AppIntroSlider slides={slides} onDone={this._onDone}/>;
