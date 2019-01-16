@@ -10,7 +10,6 @@
 import React, {Component} from 'react';
 import { StyleSheet,View, Text } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {MyTabs} from "../section/TabNav.js";
 
 const styles = StyleSheet.create({
     explore: {

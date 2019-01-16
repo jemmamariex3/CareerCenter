@@ -41,7 +41,7 @@ npm install
 Once in the main directory run the following
 
 ``` bash
-npm run 
+npm start 
 ```
 
 In another tab run the following for iOS - this will open the [iOS simulator](https://facebook.github.io/react-native/docs/running-on-simulator-ios) on your Mac
