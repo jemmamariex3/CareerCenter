@@ -1,3 +1,9 @@
+
+// As mentioned in the App.js file, all the navigation objects have been made into components so that it is reusable. And it is easier to keep the
+// files cleaner.  This is the Tab Navigation object. This takes care of the 4 main navigation in the bottom of the app. (users, cinthy, events and multimedia)
+// the icons and changing colors of the icons are handled here. The icons are from the react-native-vector-icons library
+// JT 1/15/19
+
 import React, {Component} from 'react';
 import {Image} from 'react-native';
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';

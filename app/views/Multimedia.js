@@ -1,9 +1,15 @@
+// As of this time, this is the template that will display the rendered nultimedia videos.
+// Please update this documentation section when there is new code added to this page.
+// JT 1/15/19
+
+//TODO: Render the multimedia videos from youtube
+//TODO: use this template and adjust styling sizes.
+//TODO: Update the documentation for this file.
+
 import React, {Component} from 'react';
 import {StyleSheet, SafeAreaView, Text, View, ScrollView, Image} from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-// import {TabMenu} from "../section/TabMenu";
 
 export class Multimedia extends Component<Props> {
     static navigationOptions = {

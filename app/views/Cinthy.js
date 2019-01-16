@@ -1,3 +1,12 @@
+//Cinthy.js contains the code for the cinthy chatbot
+// The original code for the chatbot is commented from line 5 - 370
+// Currently, the original code has a bug that is breaking the app. It may be better to scrap the original code or just keep as reference.
+// Vicente is working on the new chatbot that is on the VR app. It should work for the mobile app as well.
+// The file only renders "Cinthy" on like 384.
+// JT 1/15/19
+
+//TODO: integrate Vicente's chatbot
+//TODO: Update the documentation for this file.
 // import React, {Component} from 'react'
 // import {
 //     Text,

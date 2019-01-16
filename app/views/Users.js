@@ -1,3 +1,17 @@
+// Users.js contains the 6 mains buttons. and the modals for the pin and help button.
+// _showModal and _hideModal handles the state of the modals. (determines if they are shown or hidden)
+// the modals are from the react-native-modal library.
+
+//Navigation:
+// the  onPress={() => navigate('...')} within each TouchableOpacity button is a bit confusing.
+// since these 6 skills are specifically listed within the stack object, they passed down the navigate() function as a prop.
+// once nested, the prop needs to be manually passed through the component. Please read into the react-navigation docs if needed
+// for now there is no need to mess with the navigation structure.
+
+//There are both stylesheet styling and inline styling.
+// JT 1/15/19
+
+
 import React, {Component} from 'react';
 import {TouchableOpacity,StatusBar,Platform, StyleSheet, Text, SafeAreaView,View, Image, Button, ScrollView, Dimensions} from 'react-native';
 import {MainLogo} from "../img/career_center_logo.png";

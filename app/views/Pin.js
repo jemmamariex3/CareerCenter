@@ -1,3 +1,6 @@
+//Pin.js is the file that contains the information that goes into the modal that opens when the pin button is clicked on.
+// 1/15/19 JT
+
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native'
 

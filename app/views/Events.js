@@ -1,3 +1,8 @@
+// As of right now, Events.js contains the template of how the rendered events from the database will look like
+// Please update this documentation section once more logic is added into this file.
+// {initialArr.map((prop, key) => { } line 57 is the template that maps through initialArr  (an array of objects that contain the properties needed for the buttons)
+// JT 1/15/19
+
 import React, {Component} from 'react';
 import {StyleSheet, SafeAreaView, Text, View, ScrollView, Image,TouchableOpacity, Button} from 'react-native';
 
@@ -35,7 +40,11 @@ const initialArr = [
 ];
 
 
-//TODO: create a general array and for loop each to create a button
+//TODO: render the data from the database and store into the initialArr
+//TODO: enable sharing button
+//TODO: add permissions to add events to user's calendar (if possible - not a priority)
+//TODO: Update the documentation for this file.
+
 
 
 export class Events extends Component<Props> {

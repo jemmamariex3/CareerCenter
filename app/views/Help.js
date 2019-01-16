@@ -1,3 +1,12 @@
+// Help.js contains the onboarding content that will appear in the modal when the question mark button is selected
+
+// const slides is an array of objects that contain the properties needed for the onboarding element
+// Current problem: the onboarding slider is working but the modal will not close when the "done" button is selected. The onboarding
+// slide closes but the opacity of the modal is left behind
+// TODO: need to figure out how to close the entire modal when the "done" button is selected.
+// JT 1/15/19
+
+
 import React, {Component} from 'react';
 import { StyleSheet,View, Text } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
