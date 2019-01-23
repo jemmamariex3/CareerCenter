@@ -5,52 +5,69 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, SafeAreaView, Text, View, ScrollView, Image,TouchableOpacity, Button} from 'react-native';
+import Modal from "react-native-modal";
+import {Event} from "../section/Event";
 
 
 // import {TabMenu} from "../section/TabMenu";
 const initialArr = [
     {
         name: "Resu-Makeover",
+        desc: "Come learn the basics to find a job on campus!",
         date: "Oct",
         num: "10",
         time: "10:30 AM - 2:30 PM",
-        desc: "USU Grand Salon",
+        location: "USU Grand Salon",
         img: "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
         flyer: "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
+        rsvp: 'rsvp_link'
     },
     {
         name: "Resu-Makeover",
+        desc: "Come learn the basics to find a job on campus!",
         date: "Oct",
         num: "10",
         time: "10:30 AM - 2:30 PM",
-        desc: "USU Grand Salon",
+        location: "USU Grand Salon",
         img: "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
         flyer: "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
+        rsvp: 'rsvp_link'
     },
     {
         name: "Resu-Makeover",
+        desc: "Come learn the basics to find a job on campus!",
         date: "Oct",
         num: "10",
         time: "10:30 AM - 2:30 PM",
-        desc: "USU Grand Salon",
+        location: "USU Grand Salon",
         img: "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
         flyer: "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
+        rsvp: 'rsvp_link'
     },
 
 ];
 
 
-//TODO: render the data from the database and store into the initialArr
+//TODO: render the data from the database to display in the 'Events' tab
+//TODO: pass the selected event data into the event component (app > section > Event.js)
+    //TODO: figure out how to display full date for modal and split date for Button display
 //TODO: enable sharing button
 //TODO: add permissions to add events to user's calendar (if possible - not a priority)
 //TODO: Update the documentation for this file.
-
-
 
 export class Events extends Component<Props> {
     static navigationOptions = {
         header: null
     };
+    constructor(props) {
+        super(props);
+        this.state = {
+            isModalVisible1: false,
+        }
+    }
+    _showModal = () => this.setState({ isModalVisible: true })
+    _hideModal = () => this.setState({ isModalVisible: false })
+
     render(){
         const { navigate } = this.props.navigation;
 
@@ -60,7 +77,7 @@ export class Events extends Component<Props> {
 
                     {initialArr.map((prop, key) => {
                         return (
-                            <TouchableOpacity onPress={() => navigate('EventRT')}>
+                            <TouchableOpacity onPress={this._showModal}>
                                 <View style={styles.textBox}>
                                     <View style={styles.imgHolder}>
                                         <Image style={styles.imageDisplay} source={{uri: prop.img }}/>
@@ -76,7 +93,7 @@ export class Events extends Component<Props> {
                                             </View>
                                             <View style={styles.infoBox}>
                                                 <Text style={styles.eventDescription}>
-                                                    {prop.desc}
+                                                    {prop.location}
                                                 </Text>
                                             </View>
                                         </View>
@@ -89,6 +106,26 @@ export class Events extends Component<Props> {
                         );
                     })}
                 </ScrollView>
+                <Modal
+                    isVisible={this.state.isModalVisible}
+                    animationType = "fade"
+                    onBackdropPress={() => this.setState({ isVisible: false })}
+                    backdropOpacity={.50}
+                    animationInTiming={200}
+                    animationOutTiming={200}
+                >
+                    <SafeAreaView style={styles.eventContainer}>
+                        <ScrollView style={styles.scrollContainer}>
+                            <Event/>
+                        </ScrollView>
+                        <Button
+                            title="Return to Event List"
+                            onPress={this._hideModal}
+                            style={styles.exit}
+                        />
+                    </SafeAreaView>
+
+                </Modal>
             </SafeAreaView>
         )
     }
@@ -170,5 +207,27 @@ const styles = StyleSheet.create({
         height:160,
         borderRadius:20
 
-    }
+    },
+
+    //EVENTS MODAL STYLING
+    eventContainer:{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#DCDCDC",
+        borderRadius: 18,
+        borderColor: "#C0C0C0",
+        borderWidth: 2,
+        marginHorizontal: 15,
+        marginVertical: 10,
+        width: 310,
+        height:480,
+    },
+    event:{
+        width: 25,
+        height: 25
+    },
+    scrollContainer:{
+        margin: 20
+    },
 })
