@@ -10,7 +10,6 @@
 import React, {Component} from 'react';
 import { StyleSheet,View, Text } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-
 const styles = StyleSheet.create({
     explore: {
         width: 280,
@@ -95,6 +94,7 @@ const slides = [
         backgroundColor: '#22bcb5',
     }
 ];
+
 export class Help extends Component {
     static navigationOptions = {
         header:null
@@ -102,22 +102,9 @@ export class Help extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            showRealApp: false,
-        };
     }
-    _onDone = () => {
-        // User finished the introduction. Show real app through
-        // navigation or simply by controlling state
-        this.setState({ showRealApp: true });
-    };
     render() {
-        if (this.state.showRealApp) {
-            return null;
-        }
-        else {
-            return <AppIntroSlider slides={slides} onDone={this._onDone}/>;
-        }
+        return <AppIntroSlider slides={slides} onDone={this.props.toggleModal2}/>;
     }
 }
 

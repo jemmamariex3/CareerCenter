@@ -1,6 +1,7 @@
 // Users.js contains the 6 mains buttons. and the modals for the pin and help button.
 // _showModal and _hideModal handles the state of the modals. (determines if they are shown or hidden)
 // the modals are from the react-native-modal library.
+// toggleModal2 is a function that closes the help modal directly instead of using the _showModal2 and _hideModal2
 
 //Navigation:
 // the  onPress={() => navigate('...')} within each TouchableOpacity button is a bit confusing.
@@ -29,12 +30,18 @@ export class Users extends Component<Props> {
             isModalVisible1: false,
             isModalVisible2: false
         }
+        this.toggleModal2 = this.toggleModal2.bind(this)
     }
     _showModal1 = () => this.setState({ isModalVisible1: true })
     _hideModal1 = () => this.setState({ isModalVisible1: false })
 
     _showModal2 = () => this.setState({ isModalVisible2: true })
-    _hideModal2 = () => this.setState({ isModalVisible2: false })
+
+    toggleModal2(){
+        this.setState({
+            isModalVisible2: false
+        })
+    }
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -73,13 +80,7 @@ export class Users extends Component<Props> {
                 animationInTiming={200}
                 animationOutTiming={200}
             >
-                <Help/>
-                <Button
-                    title="Return to Menu"
-                    onPress={this._hideModal2}
-                    style={styles.exit}
-                />
-
+                <Help toggleModal2 = {this.toggleModal2}/>
             </Modal>
 
             {/*MAJOR BUTTONS*/}
