@@ -1,7 +1,7 @@
 // Users.js contains the 6 mains buttons. and the modals for the pin and help button.
 // _showModal and _hideModal handles the state of the modals. (determines if they are shown or hidden)
 // the modals are from the react-native-modal library.
-// toggleModal2 is a function that closes the help modal directly instead of using the _showModal2 and _hideModal2
+// toggleModal2 is a function that closes the help modal directly using isModalVisible2 instead of using the _showModal2 and _hideModal2
 
 //Navigation:
 // the  onPress={() => navigate('...')} within each TouchableOpacity button is a bit confusing.
@@ -24,6 +24,12 @@ export class Users extends Component<Props> {
     static navigationOptions = {
         header:null
     };
+
+    //binded function toggleModel2 to constructor.
+    //purpose of the function is to help toggle states within the child component, Event.js (./Help.js)
+    //toggleModel2 is passed entirely in the Help component line 87 as an attribute.
+    //state is switched in child component and is sent back into the parent component (Users.js) and toggles isModalVisible2 to false
+    //isModalVisible2 will close the second modal. JT 1/25/19
     constructor(props) {
         super(props);
         this.state = {

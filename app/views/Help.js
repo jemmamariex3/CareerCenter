@@ -65,6 +65,11 @@ const styles = StyleSheet.create({
     },
     subInfo:{
         fontSize: 12
+    },
+    onBoard:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 
@@ -104,7 +109,7 @@ export class Help extends Component {
         super(props);
     }
     render() {
-        return <AppIntroSlider slides={slides} onDone={this.props.toggleModal2}/>;
+        return <AppIntroSlider contentContainerStyle={styles.onBoard} slides={slides} onDone={this.props.toggleModal2}/>;
     }
 }
 
