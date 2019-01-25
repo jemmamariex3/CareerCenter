@@ -57,5 +57,6 @@ npm run android
 ```
 
 
-
+##Documentation Structure Reference
+Check out [Reference](./app_structure.md)
 
