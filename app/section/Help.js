@@ -8,40 +8,42 @@
 
 
 import React, {Component} from 'react';
-import { StyleSheet,View, Text } from 'react-native';
+import { StyleSheet,View, Text, SafeAreaView } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import {ServiceLogo} from './ServicesLogo'
+
 const styles = StyleSheet.create({
     explore: {
         width: 280,
         height: 184,
     },
     counsel:{
-        width: 341,
-        height: 240,
+        width: 272,
+        height: 192,
     },
     resource:{
-        width: 313,
-        height: 262,
+        width: 250,
+        height: 209,
     },
     connect:{
-        width: 348,
-        height: 237,
+        width: 278,
+        height: 189,
     },
     ready:{
-        width: 347,
-        height: 198,
+        width: 277,
+        height: 158,
     },
     direction:{
-        width: 345,
-        height: 239,
+        width: 276,
+        height: 191,
     },
     events:{
-        width: 312,
-        height: 178,
+        width: 249,
+        height: 142,
     },
     cinthy:{
-        width: 330,
-        height: 212,
+        width: 264,
+        height: 191,
     },
     eLearning:{
         width: 287,
@@ -67,9 +69,11 @@ const styles = StyleSheet.create({
         fontSize: 12
     },
     onBoard:{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
+        marginLeft: -30,
+    },
+    text:{
+        color: '#ffffff',
+        fontSize:15
     }
 });
 
@@ -77,27 +81,52 @@ const slides = [
     {
         key: 1,
         title: 'Services',
-        text: 'Description.\nSay something cool',
+        text: 'Self-Exploration\nThe Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Exploration/Alvin_SE_illustration_vector_015-05.png'),
         imageStyle: styles.explore,
-        backgroundColor: '#59b2ab',
+        backgroundColor: '#F6BA61',
+        textStyle:styles.text,
     },
     {
         key: 2,
         title: 'Services',
         text: 'Other cool stuff',
         image: require('../img/Counseling/Alvin_SE_illustration_vector_015-04.png'),
-        imageStyle: styles.image,
-        backgroundColor: '#febe29',
+        imageStyle: styles.connect,
+        backgroundColor: '#E84C3D',
     },
     {
         key: 3,
         title: 'Services',
         text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
         image: require('../img/Resources/Alvin_SE_illustration_vector_015-06.png'),
-        imageStyle: styles.image,
-        backgroundColor: '#22bcb5',
-    }
+        imageStyle: styles.resource,
+        backgroundColor: '#8297CA',
+    },
+    {
+        key: 4,
+        title: 'Services',
+        text: 'Description.\nSay something cool',
+        image: require('../img/Connections/Alvin_SE_illustration_vector_015-08.png'),
+        imageStyle: styles.connect,
+        backgroundColor: '#59b2ab',
+    },
+    {
+        key: 5,
+        title: 'Services',
+        text: 'Other cool stuff',
+        image: require('../img/Readiness/Alvin_SE_illustration_vector_015-07.png'),
+        imageStyle: styles.ready,
+        backgroundColor: '#5B4D90',
+    },
+    {
+        key: 6,
+        title: 'Services',
+        text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
+        image: require('../img/Direction/Alvin_SE_illustration_vector_015-09.png'),
+        imageStyle: styles.direction,
+        backgroundColor: '#84CDC9',
+    },
 ];
 
 export class Help extends Component {
@@ -109,7 +138,11 @@ export class Help extends Component {
         super(props);
     }
     render() {
-        return <AppIntroSlider contentContainerStyle={styles.onBoard} slides={slides} onDone={this.props.toggleModal2}/>;
+        return (
+            <SafeAreaView>
+                <AppIntroSlider contentContainerStyle={styles.onBoard} slides={slides} onDone={this.props.toggleModal2}/>
+            </SafeAreaView>
+            )
     }
 }
 

@@ -10,6 +10,17 @@
 // for now there is no need to mess with the navigation structure.
 
 //There are both stylesheet styling and inline styling.
+
+// for ios android interface:
+// const { width, height } = Dimensions.get('window');
+//
+// const isIphoneX =
+//   Platform.OS === 'ios' &&
+//   !Platform.isPad &&
+//   !Platform.isTVOS &&
+//   (height === 812 || width === 812);
+//
+// const isAndroidRTL = I18nManager.isRTL && Platform.OS === 'android';
 // JT 1/15/19
 
 
@@ -17,8 +28,8 @@ import React, {Component} from 'react';
 import {TouchableOpacity,StatusBar,Platform, StyleSheet, Text, SafeAreaView,View, Image, Button, ScrollView, Dimensions} from 'react-native';
 import {MainLogo} from "../img/career_center_logo.png";
 import Modal from 'react-native-modal';
-import {Pin} from "./Pin";
-import {Help} from "./Help";
+import {Pin} from "../section/Pin";
+import {Help} from "../section/Help";
 
 export class Users extends Component<Props> {
     static navigationOptions = {
@@ -86,7 +97,9 @@ export class Users extends Component<Props> {
                 animationInTiming={200}
                 animationOutTiming={200}
             >
-                <Help toggleModal2 = {this.toggleModal2}/>
+                <SafeAreaView style={styles.helpContainer}>
+                    <Help toggleModal2 = {this.toggleModal2}/>
+                </SafeAreaView>
             </Modal>
 
             {/*MAJOR BUTTONS*/}
@@ -259,7 +272,18 @@ const styles = StyleSheet.create({
         width: 23,
         height: 23
     },
-
+    helpContainer:{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#DCDCDC",
+        borderColor: "#C0C0C0",
+        borderWidth: 2,
+        marginHorizontal: 15,
+        marginVertical: 10,
+        width: 310,
+        height:480,
+    },
     //PIN MODAL STYLING
     pinContainer:{
         flex: 1,
