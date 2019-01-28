@@ -25,12 +25,14 @@
 
 
 import React, {Component} from 'react';
-import {TouchableOpacity,StatusBar,Platform, StyleSheet, Text, SafeAreaView,View, Image, Button, ScrollView, Dimensions} from 'react-native';
+import {TouchableOpacity, PixelRatio,StyleSheet, Text, SafeAreaView,View, Image, Button, ScrollView, Dimensions} from 'react-native';
 import {MainLogo} from "../img/career_center_logo.png";
 import Modal from 'react-native-modal';
 import {Pin} from "../section/Pin";
 import {Help} from "../section/Help";
 
+const {width} = Dimensions.get('window').width * PixelRatio.get();
+const {height} = Dimensions.get("window").height * PixelRatio.get();
 export class Users extends Component<Props> {
     static navigationOptions = {
         header:null
@@ -279,10 +281,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#DCDCDC",
         borderColor: "#C0C0C0",
         borderWidth: 2,
-        marginHorizontal: 15,
-        marginVertical: 10,
-        width: 310,
-        height:480,
+        width: width,
+        height: height,
     },
     //PIN MODAL STYLING
     pinContainer:{

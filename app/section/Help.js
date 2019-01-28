@@ -1,9 +1,5 @@
 // Help.js contains the onboarding content that will appear in the modal when the question mark button is selected
-
 // const slides is an array of objects that contain the properties needed for the onboarding element
-
-// TODO: play with the text and title styling
-// TODO: adjust the width of the slides to fit the text without cutting
 // JT 1/25/19
 
 
@@ -14,40 +10,40 @@ import {ServiceLogo} from './ServicesLogo'
 
 const styles = StyleSheet.create({
     explore: {
-        width: 280,
-        height: 184,
+        width: 315,
+        height: 208,
     },
     counsel:{
-        width: 272,
-        height: 192,
+        width: 307,
+        height: 216,
     },
     resource:{
-        width: 250,
-        height: 209,
+        width: 282,
+        height: 236,
     },
     connect:{
-        width: 278,
-        height: 189,
+        width: 312,
+        height: 178,
     },
     ready:{
-        width: 277,
-        height: 158,
+        width: 312,
+        height: 178,
     },
     direction:{
-        width: 276,
-        height: 191,
+        width: 311,
+        height: 215,
     },
     events:{
-        width: 249,
-        height: 142,
+        width: 281,
+        height: 160,
     },
     cinthy:{
-        width: 264,
+        width: 297,
         height: 191,
     },
     eLearning:{
-        width: 287,
-        height: 239,
+        width: 258,
+        height: 215,
     },
     pin:{
         width: 25,
@@ -69,19 +65,21 @@ const styles = StyleSheet.create({
         fontSize: 12
     },
     onBoard:{
-        marginLeft: -30,
+        marginLeft: -20,
     },
     text:{
         color: '#ffffff',
-        fontSize:15
+        fontSize:14,
+        margin: 20,
+        fontWeight: "bold"
     }
 });
 
 const slides = [
     {
         key: 1,
-        title: 'Services',
-        text: 'Self-Exploration\nThe Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
+        title: 'Self-Exploration',
+        text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Exploration/Alvin_SE_illustration_vector_015-05.png'),
         imageStyle: styles.explore,
         backgroundColor: '#F6BA61',
@@ -89,43 +87,75 @@ const slides = [
     },
     {
         key: 2,
-        title: 'Services',
-        text: 'Other cool stuff',
+        title: 'Counseling',
+        text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Counseling/Alvin_SE_illustration_vector_015-04.png'),
         imageStyle: styles.connect,
         backgroundColor: '#E84C3D',
+        textStyle:styles.text,
     },
     {
         key: 3,
-        title: 'Services',
-        text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
+        title: 'Resources',
+        text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Resources/Alvin_SE_illustration_vector_015-06.png'),
         imageStyle: styles.resource,
         backgroundColor: '#8297CA',
+        textStyle:styles.text,
     },
     {
         key: 4,
-        title: 'Services',
-        text: 'Description.\nSay something cool',
+        title: 'Connections',
+        text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Connections/Alvin_SE_illustration_vector_015-08.png'),
         imageStyle: styles.connect,
         backgroundColor: '#59b2ab',
+        textStyle:styles.text,
     },
     {
         key: 5,
-        title: 'Services',
-        text: 'Other cool stuff',
+        title: 'Readiness',
+        text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Readiness/Alvin_SE_illustration_vector_015-07.png'),
         imageStyle: styles.ready,
         backgroundColor: '#5B4D90',
+        textStyle:styles.text,
     },
     {
         key: 6,
-        title: 'Services',
-        text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
+        title: 'Direction',
+        text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Direction/Alvin_SE_illustration_vector_015-09.png'),
         imageStyle: styles.direction,
         backgroundColor: '#84CDC9',
+        textStyle:styles.text,
+    },
+    {
+        key: 7,
+        title: 'Events',
+        text: 'The Career Center hosts a broad array of Career Fairs, Employer Info Sessions, and Workshops/Programs. For full details and how to reserve your slot for Info Session, Workshops and Networking Events, login to SUNlink.',
+        image: require('../img/Events/eventsLogo.png'),
+        imageStyle: styles.events,
+        backgroundColor: '#C655F0',
+        textStyle:styles.text,
+    },
+    {
+        key: 8,
+        title: 'Cinthy',
+        text: 'Chat with the Career Center mascot Cinthy and ask her any questions you have.',
+        image: require('../img/Cinthy/cinthyLogo.png'),
+        imageStyle: styles.cinthy,
+        backgroundColor: '#81DDFF',
+        textStyle:styles.text,
+    },
+    {
+        key: 9,
+        title: 'E-Learning',
+        text: 'Access tutorials and videos to learn more about the Career Center.',
+        image: require('../img/Elearning/elearning.png'),
+        imageStyle: styles.eLearning,
+        backgroundColor: '#76E85B',
+        textStyle:styles.text,
     },
 ];
 
