@@ -3,6 +3,7 @@ import {TouchOpacity} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import {MyTabs} from "./app/section/TabNav";
 import {LogoRT} from "./app/section/StackNav";
+import SplashScreen from 'react-native-splash-screen';
 
 // App.js contains the nested navigation of the app. All the navigations(stack and tabs) are individual components that are
 // imported in this file. The stack object includes the tab object and is rendered in the class "App". -JT 1/15/19|
@@ -21,6 +22,9 @@ const MyStack =  createStackNavigator({
 });
 
 export default class App extends Component {
+    componentDidMount(){
+        SplashScreen.hide();
+    }
     static navigationOptions = {
         header:null
     };
