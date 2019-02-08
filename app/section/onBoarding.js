@@ -1,14 +1,7 @@
-// Help.js contains the onboarding content that will appear in the modal when the question mark button is selected
-// const slides is an array of objects that contain the properties needed for the onboarding element
-// AppIntroSlider passes that toggle state back up to the parent (User.js) using onDone={this.props.toggleModal2}. This allows us to hide the modal when user
-// hits done after all the slides.
-// JT 2/8/19
-
-
 import React, {Component} from 'react';
 import { StyleSheet,View, Text, SafeAreaView } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {ServiceLogo} from './ServicesLogo'
+import {Users} from "../views/Users";
 
 const styles = StyleSheet.create({
     explore: {
@@ -160,21 +153,17 @@ const slides = [
         textStyle:styles.text,
     },
 ];
-
-export class Help extends Component {
+export class onBoarding extends Component {
     static navigationOptions = {
         header:null
     };
 
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <SafeAreaView>
-                <AppIntroSlider contentContainerStyle={styles.onBoard} slides={slides} onDone={this.props.toggleModal2} showSkipButton={true} onSkip={this.props.toggleModal2}/>
-            </SafeAreaView>
-            )
+    render(){
+        const { navigate } = this.props.navigation;
+        return(
+                <AppIntroSlider slides={slides} onDone={() => navigate('Tabs')} showSkipButton={true} onSkip={() => navigate('Tabs')}/>
+        )
+
     }
 }
 

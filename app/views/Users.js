@@ -2,6 +2,7 @@
 // _showModal and _hideModal handles the state of the modals. (determines if they are shown or hidden)
 // the modals are from the react-native-modal library.
 // toggleModal2 is a function that closes the help modal directly using isModalVisible2 instead of using the _showModal2 and _hideModal2
+// It takes in the state change from its child (Help.js) through onDone={this.props.toggleModal2}.
 
 //Navigation:
 // the  onPress={() => navigate('...')} within each TouchableOpacity button is a bit confusing.
@@ -21,7 +22,7 @@
 //   (height === 812 || width === 812);
 //
 // const isAndroidRTL = I18nManager.isRTL && Platform.OS === 'android';
-// JT 1/15/19
+// JT 2/8/19
 
 
 import React, {Component} from 'react';
