@@ -142,20 +142,20 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     service:{
-        width: 216,
+        width: 215,
         height: 41,
     },
     event:{
         width: 207,
-        height: 47,
+        height: 41,
     },
     cinthyBanner:{
         width: 200,
-        height: 47,
+        height: 41,
     },
     learn:{
-        width: 315,
-        height: 48,
+        width: 275,
+        height: 41,
     },
     logo:{
         width: 231,
