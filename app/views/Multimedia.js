@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
     },
 
     Card: {
-      margin: 20,
+      margin: 40,
+        marginBottom: -10,
       borderRadius: 10,
       shadowOpacity: 0.5,
       elevation: 3,
