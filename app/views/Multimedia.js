@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Card, CardTitle,}  from 'react-native-material-cards';
-import { StyleSheet, ScrollView, PixelRatio, SafeAreaView, } from 'react-native';
+import { StyleSheet, ScrollView, PixelRatio, SafeAreaView, Image, View} from 'react-native';
 import YouTube from 'react-native-youtube';
 import axios from 'axios';
 //import Icon from 'react-native-vector-icons/FontAwesome';
@@ -65,7 +65,10 @@ export class Multimedia extends Component {
 
     return (
       <SafeAreaView>
-        <ScrollView
+          <View style={styles.logoContainer}>
+            <Image source={require('../img/CC_logo.png')} style={styles.cclogo}/>
+          </View>
+          <ScrollView
           style={styles.container}
           onLayout={({
             nativeEvent: {
@@ -108,24 +111,36 @@ export class Multimedia extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'white',
+        backgroundColor:'rgba(222,228,242,.30)',
     },
 
     Card: {
-      margin: 40,
+        margin: 40,
         marginBottom: -10,
-      borderRadius: 10,
-      shadowOpacity: 0.5,
-      elevation: 3,
-      shadowRadius: 2,
-      shadowOffset: {
-          height: 6,
-          width: 1,
-      },
+        borderRadius: 10,
+        shadowOpacity: 0.5,
+        elevation: 3,
+        shadowRadius: 2,
+        shadowOffset: {
+            height: 6,
+            width: 1,
+        },
     },
 
     player: {
-      alignSelf: 'stretch',
-      borderRadius: 10,
+        alignSelf: 'stretch',
+        borderRadius: 10,
+    },
+    logoContainer:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin:10,
+        marginBottom: -10,
+        zIndex: 5
+    },
+    cclogo:{
+        width: 250,
+        height: 25,
     },
   })
