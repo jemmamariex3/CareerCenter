@@ -15,6 +15,7 @@
     "react": "16.4.1",
     "react-native": "0.56.0",
     "react-native-app-intro-slider": "^1.0.1",
+    "react-native-linear-gradient": "^2.5.3",
     "react-native-material-cards": "^1.0.9",
     "react-native-modal": "^7.0.2",
     "react-native-splash-screen": "^3.2.0",
