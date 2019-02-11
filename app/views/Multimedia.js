@@ -1,7 +1,7 @@
-/* 
-    --  Multimedia.js contains the template to display the specified playlist from the Career Center YouTube channel. 
+/*
+    --  Multimedia.js contains the template to display the specified playlist from the Career Center YouTube channel.
     --  An HTTP Request calls the YouTube API and pulls a JSON object containg the information about the PlayList.
-    --  To see how data is structured and what information is available, the FULL URL can be entered in a browser. 
+    --  To see how data is structured and what information is available, the FULL URL can be entered in a browser.
     --  Search results are restricted to retrieve 20 vidoes, but can be changed in the baseURL where &maxResults=20.
     --  Timothy Spengler Febuary 7, 2019.
 */
@@ -36,7 +36,7 @@ export class Multimedia extends Component {
     let infoArray = [];
     while(i < totalVideos){
       infoArray[i] = {
-        videoId: response.items[i].snippet.resourceId.videoId, 
+        videoId: response.items[i].snippet.resourceId.videoId,
         videoTitle: response.items[i].snippet.title,
       };
       console.log(infoArray[i].videoId);
@@ -58,8 +58,8 @@ export class Multimedia extends Component {
 
   componentDidMount() {
     this.loadYouTubePlaylist();
-  } 
- 
+  }
+
   render() {
     const { navigate } = this.props.navigation;
 
@@ -80,10 +80,10 @@ export class Multimedia extends Component {
         {this.state.playListInfo.map((prop) => {
             return (
               <Card style={styles.Card} key={prop.videoId}>
-                <YouTube 
+                <YouTube
                   ref={component => {
                     this._youTubeRef= component;
-                  }} 
+                  }}
                   videoId={prop.videoId}
                   style={[
                         {
@@ -94,7 +94,7 @@ export class Multimedia extends Component {
                         styles.player,
                       ]}
                 />
-                <CardTitle 
+                <CardTitle
                   title={prop.videoTitle}>
                 </CardTitle>
               </Card>
@@ -105,7 +105,7 @@ export class Multimedia extends Component {
     );
   }
 }
- 
+
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
     container: {
       backgroundColor: 'white',
     },
-  
+
     Card: {
       margin: 20,
       borderRadius: 10,
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
           width: 1,
       },
     },
-  
+
     player: {
       alignSelf: 'stretch',
       borderRadius: 10,
