@@ -333,7 +333,7 @@ export class onBoarding extends Component {
     render(){
         const { navigate } = this.props.navigation;
         return(
-                <AppIntroSlider slides={slides} renderItem={this._renderItem} onDone={() => navigate('Tabs')} showSkipButton={true} onSkip={() => navigate('Tabs')}/>
+                <AppIntroSlider slides={slides} renderItem={this._renderItem} onDone={() => navigate('Tabs')} showSkipButton={true} onSkip={() => navigate('Tabs')} showPrevButton={true}/>
         )
 
     }
