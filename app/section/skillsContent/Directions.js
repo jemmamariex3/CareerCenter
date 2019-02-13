@@ -53,13 +53,14 @@ const styles = StyleSheet.create({
     },
     textBox:{
         width: 332,
-        height: 500,
+        height: 520,
         marginTop: 40,
     },
 
     seGraphics1:{
         width: 333,
         height: 231,
+        marginTop: 60
     },
     oval:{
         width: 300,

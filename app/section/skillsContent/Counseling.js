@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     container:{
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
         alignItems:'center',
     },
     titles:{
@@ -49,14 +50,15 @@ const styles = StyleSheet.create({
     },
     textBox:{
         width: 331,
-        height: 115,
-        marginTop: 40,
+        height: 380,
+        marginTop: 30,
 
     },
 
     seGraphics1:{
         width: 341,
         height: 240,
+        margin: 30
     },
     oval:{
         width: 300,
