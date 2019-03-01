@@ -12,15 +12,21 @@ export class Resources extends Component {
         return (
             <SafeAreaView style={styles.mainContainer}>
                 <ScrollView contentContainerStyle={styles.container}>
-                    {/*<View style={styles.oval}/>*/}
+                    <View style={styles.oval}/>
                     <Image style={styles.seGraphics1} source={require('../../img/Resources/Alvin_SE_illustration_vector_015-06.png')}/>
                     <Text style={styles.titles}>Resources</Text>
                     <View style={styles.textBox}>
-                        <Text style={styles.detail}>Whether it’s through counseling or your own research, the Career Center is full of helpful resources both on-campus and online! Come to Bayramian Hall 413 to </Text>
-                        <Text style={styles.detail}>see all the amazing career-focused books in our library.</Text>
-                        <Text/>
-                        <Text style={styles.detail}>Explore Pathways and SUNlink, our two unique online services. Take part in an Information Session to learn about particular jobs or companies. We have </Text>
-                        <Text style={styles.detail}>the tools to help you succeed! </Text>
+                        <Text style={styles.detail}>Whether it’s through counseling or your own research, the Career Center is full of helpful resources both on-campus and online!</Text>
+                    </View>
+                    <View style={styles.oval2}/>
+                    <Image style={styles.seGraphics2} source={require('../../img/Resources/Alvin_SE_illustration_vector_015-06.png')}/>
+                    <View style={styles.textBox2}>
+                        <Text style={styles.detail2}>Come to Bayramian Hall 413 to see all the amazing career-focused books in our library.</Text>
+                    </View>
+                    <View style={styles.oval3}/>
+                    <Image style={styles.seGraphics3} source={require('../../img/Resources/Alvin_SE_illustration_vector_015-06.png')}/>
+                    <View style={styles.textBox3}>
+                        <Text style={styles.detail3}>Explore Pathways and SUNlink, our two unique online services. Take part in an Information Session to learn about particular jobs or companies. We have the tools to help you succeed! </Text>
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -40,31 +46,91 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     titles:{
-        zIndex: 2,
-        fontSize: 36,
-        color: '#ffffff',
+        color:'#6078DD',
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        fontSize:24,
+        textAlign: 'center',
+        marginTop: -12
     },
     detail:{
-        fontSize: 18,
-        color: '#FFFFFF',
+        color: '#ffffff',
+        fontSize:14,
+        marginTop: 40,
+    },
+    detail2:{
+        color: '#000000',
+        fontSize:14,
+        marginTop: 20,
+    },
+    detail3:{
+        color: '#000000',
+        fontSize:14,
+        marginTop: -20,
+
     },
     textBox:{
         width: 331,
-        height: 380,
-        marginTop: 40,
+        height: 120,
+        marginTop: 20,
+        marginBottom: -20,
+    },
+    textBox2:{
+        width: 331,
+        height: 120,
+    },
+    textBox3:{
+        width: 331,
+        height: 240,
+        marginTop: 50,
     },
 
     seGraphics1:{
         width: 293,
         height: 244,
-        marginTop: 60
+        marginTop: 30
+    },
+    seGraphics2:{
+        width: 293,
+        height: 244,
+        marginTop: 30
+    },
+    seGraphics3:{
+        width: 293,
+        height: 244,
+        marginTop: 120
     },
     oval:{
-        width: 300,
+        width: 250,
         height: 280,
         backgroundColor: '#FFFFFF',
-        borderRadius: 200,
-        transform: [{ scaleX:2.5 }],
-        top: 25
+        borderRadius: 300,
+        transform: [
+            {scaleX: 3}
+        ],
+        top: 20,
+        position: 'absolute'
+    },
+    oval2:{
+        width: 250,
+        height: 280,
+        backgroundColor: '#fff5e8',
+        borderRadius: 300,
+        transform: [
+            {scaleX: 3}
+        ],
+        top: 580,
+        position: 'absolute'
+    },
+    oval3:{
+        width: 250,
+        height: 280,
+        backgroundColor: '#fff5e8',
+        borderRadius: 300,
+        transform: [
+            {scaleX: 3}
+        ],
+        top: 1080,
+        position: 'absolute'
     }
 });

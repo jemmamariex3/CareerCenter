@@ -12,16 +12,21 @@ export class Connections extends Component {
         return (
             <SafeAreaView style={styles.mainContainer}>
                 <ScrollView contentContainerStyle={styles.container}>
-                    {/*<View style={styles.oval}/>*/}
+                    <View style={styles.oval}/>
                     <Image style={styles.seGraphics1} source={require('../../img/Connections/Alvin_SE_illustration_vector_015-08.png')}/>
                     <Text style={styles.titles}>Connections</Text>
                     <View style={styles.textBox}>
-                        <Text style={styles.detail}>There’s no substitute for experience, and the Career Center aims to provide as many real-world connections to employers as possible. SUNLink lists</Text>
-                        <Text style={styles.detail}>jobs and internship opportunities from companies looking specifically for CSUN students while Pathways can help you explore a variety of experiential</Text>
-                        <Text style={styles.detail}>opportunities!</Text>
-                        <Text/>
-                        <Text style={styles.detail}>With events like 60 Seconds to Success, job fairs and informational interviews, students can use their time at CSUN to adequately prepare for the working</Text>
-                        <Text style={styles.detail}>world.</Text>
+                        <Text style={styles.detail}>There’s no substitute for experience, and the Career Center aims to provide as many real-world connections to employers as possible.</Text>
+                    </View>
+                    <View style={styles.oval2}/>
+                    <Image style={styles.seGraphics2} source={require('../../img/Connections/Alvin_SE_illustration_vector_015-08.png')}/>
+                    <View style={styles.textBox2}>
+                        <Text style={styles.detail2}>SUNLink lists jobs and internship opportunities from companies looking specifically for CSUN students while Pathways can help you explore a variety of experiential opportunities!</Text>
+                    </View>
+                    <View style={styles.oval3}/>
+                    <Image style={styles.seGraphics3} source={require('../../img/Connections/Alvin_SE_illustration_vector_015-08.png')}/>
+                    <View style={styles.textBox3}>
+                        <Text style={styles.detail3}>With events like 60 Seconds to Success, job fairs and informational interviews, students can use their time at CSUN to adequately prepare for the working world.</Text>
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -42,31 +47,93 @@ const styles = StyleSheet.create({
 
     },
     titles:{
-        zIndex: 2,
-        fontSize: 36,
-        color: '#ffffff',
+        color:'#2EA4DC',
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        fontSize:24,
+        textAlign: 'center',
+        marginTop: -12
+
     },
     detail:{
-        fontSize: 18,
-        color: '#FFFFFF',
+        color: '#ffffff',
+        fontSize:14,
+        marginTop: 40,
+    },
+    detail2:{
+        color: '#000000',
+        fontSize:14,
+        marginTop: 20,
+    },
+    detail3:{
+        color: '#000000',
+        fontSize:14,
+        marginTop: -20,
+
     },
     textBox:{
         width: 331,
-        height: 450,
-        marginTop: 40,
+        height: 120,
+        marginTop: 20,
+        marginBottom: -20,
+    },
+    textBox2:{
+        width: 331,
+        height: 120,
+        marginTop: 20,
+    },
+    textBox3:{
+        width: 331,
+        height: 240,
+        marginTop: 60,
     },
 
     seGraphics1:{
         width: 348,
         height: 237,
-        marginTop: 60
+        marginTop: 35
+    },
+    seGraphics2:{
+        width: 348,
+        height: 237,
+        marginTop: 40
+    },
+    seGraphics3:{
+        width: 348,
+        height: 237,
+        marginTop: 80
     },
     oval:{
-        width: 300,
+        width: 250,
         height: 280,
-        backgroundColor: '#FFFFFF',
-        borderRadius: 200,
-        transform: [{ scaleX:2.5 }],
-        top: 25
+        backgroundColor: '#F2FBFF',
+        borderRadius: 300,
+        transform: [
+            {scaleX: 3}
+        ],
+        top: 20,
+        position: 'absolute'
+    },
+    oval2:{
+        width: 250,
+        height: 280,
+        backgroundColor: '#F2FBFF',
+        borderRadius: 300,
+        transform: [
+            {scaleX: 3}
+        ],
+        top: 600,
+        position: 'absolute'
+    },
+    oval3:{
+        width: 250,
+        height: 280,
+        backgroundColor: '#F2FBFF',
+        borderRadius: 300,
+        transform: [
+            {scaleX: 3}
+        ],
+        top: 1060,
+        position: 'absolute'
     }
 });
