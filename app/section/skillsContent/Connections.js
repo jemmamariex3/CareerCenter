@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text, SafeAreaView,Button, TouchableOpacity, Image, StyleSheet,ScrollView, View, Dimensions} from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
+import LinearGradient from "react-native-linear-gradient";
 
 const {width, height} = Dimensions.get('window')
 export class Connections extends Component {
@@ -11,24 +12,26 @@ export class Connections extends Component {
     render() {
         return (
             <SafeAreaView style={styles.mainContainer}>
-                <ScrollView contentContainerStyle={styles.container}>
-                    <View style={styles.oval}/>
-                    <Image style={styles.seGraphics1} source={require('../../img/Connections/Alvin_SE_illustration_vector_015-08.png')}/>
-                    <Text style={styles.titles}>Connections</Text>
-                    <View style={styles.textBox}>
-                        <Text style={styles.detail}>There’s no substitute for experience, and the Career Center aims to provide as many real-world connections to employers as possible.</Text>
-                    </View>
-                    <View style={styles.oval2}/>
-                    <Image style={styles.seGraphics2} source={require('../../img/Connections/Alvin_SE_illustration_vector_015-08.png')}/>
-                    <View style={styles.textBox2}>
-                        <Text style={styles.detail2}>SUNLink lists jobs and internship opportunities from companies looking specifically for CSUN students while Pathways can help you explore a variety of experiential opportunities!</Text>
-                    </View>
-                    <View style={styles.oval3}/>
-                    <Image style={styles.seGraphics3} source={require('../../img/Connections/Alvin_SE_illustration_vector_015-08.png')}/>
-                    <View style={styles.textBox3}>
-                        <Text style={styles.detail3}>With events like 60 Seconds to Success, job fairs and informational interviews, students can use their time at CSUN to adequately prepare for the working world.</Text>
-                    </View>
-                </ScrollView>
+                <LinearGradient colors={['#2EA4DC', '#70DAF4']}>
+                    <ScrollView contentContainerStyle={styles.container}>
+                        <View style={styles.oval}/>
+                        <Image style={styles.seGraphics1} source={require('../../img/Connections/Alvin_SE_illustration_vector_015-08.png')}/>
+                        <Text style={styles.titles}>Connections</Text>
+                        <View style={styles.textBox}>
+                            <Text style={styles.detail}>There’s no substitute for experience, and the Career Center aims to provide as many real-world connections to employers as possible.</Text>
+                        </View>
+                        <View style={styles.oval2}/>
+                        <Image style={styles.seGraphics2} source={require('../../img/Connections/Alvin_SE_illustration_vector_015-08.png')}/>
+                        <View style={styles.textBox2}>
+                            <Text style={styles.detail2}>SUNLink lists jobs and internship opportunities from companies looking specifically for CSUN students while Pathways can help you explore a variety of experiential opportunities!</Text>
+                        </View>
+                        <View style={styles.oval3}/>
+                        <Image style={styles.seGraphics3} source={require('../../img/Connections/Alvin_SE_illustration_vector_015-08.png')}/>
+                        <View style={styles.textBox3}>
+                            <Text style={styles.detail3}>With events like 60 Seconds to Success, job fairs and informational interviews, students can use their time at CSUN to adequately prepare for the working world.</Text>
+                        </View>
+                    </ScrollView>
+                </LinearGradient>
             </SafeAreaView>
         );
     }
@@ -36,7 +39,6 @@ export class Connections extends Component {
 
 const styles = StyleSheet.create({
     mainContainer:{
-        backgroundColor: '#2EA4DC',
         width: width,
         height: height,
     },
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
     },
     textBox3:{
         width: 331,
-        height: 240,
+        height: 260,
         marginTop: 60,
     },
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text, SafeAreaView,Button, TouchableOpacity, Image, StyleSheet,ScrollView, View, Dimensions} from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
+import LinearGradient from "react-native-linear-gradient";
 
 const {width, height} = Dimensions.get('window')
 export class Resources extends Component {
@@ -11,24 +12,26 @@ export class Resources extends Component {
     render() {
         return (
             <SafeAreaView style={styles.mainContainer}>
-                <ScrollView contentContainerStyle={styles.container}>
-                    <View style={styles.oval}/>
-                    <Image style={styles.seGraphics1} source={require('../../img/Resources/Alvin_SE_illustration_vector_015-06.png')}/>
-                    <Text style={styles.titles}>Resources</Text>
-                    <View style={styles.textBox}>
-                        <Text style={styles.detail}>Whether it’s through counseling or your own research, the Career Center is full of helpful resources both on-campus and online!</Text>
-                    </View>
-                    <View style={styles.oval2}/>
-                    <Image style={styles.seGraphics2} source={require('../../img/Resources/Alvin_SE_illustration_vector_015-06.png')}/>
-                    <View style={styles.textBox2}>
-                        <Text style={styles.detail2}>Come to Bayramian Hall 413 to see all the amazing career-focused books in our library.</Text>
-                    </View>
-                    <View style={styles.oval3}/>
-                    <Image style={styles.seGraphics3} source={require('../../img/Resources/Alvin_SE_illustration_vector_015-06.png')}/>
-                    <View style={styles.textBox3}>
-                        <Text style={styles.detail3}>Explore Pathways and SUNlink, our two unique online services. Take part in an Information Session to learn about particular jobs or companies. We have the tools to help you succeed! </Text>
-                    </View>
-                </ScrollView>
+                <LinearGradient colors={['#6078DD', '#91A1CC']}>
+                    <ScrollView contentContainerStyle={styles.container}>
+                        <View style={styles.oval}/>
+                        <Image style={styles.seGraphics1} source={require('../../img/Resources/Alvin_SE_illustration_vector_015-06.png')}/>
+                        <Text style={styles.titles}>Resources</Text>
+                        <View style={styles.textBox}>
+                            <Text style={styles.detail}>Whether it’s through counseling or your own research, the Career Center is full of helpful resources both on-campus and online!</Text>
+                        </View>
+                        <View style={styles.oval2}/>
+                        <Image style={styles.seGraphics2} source={require('../../img/Resources/Alvin_SE_illustration_vector_015-06.png')}/>
+                        <View style={styles.textBox2}>
+                            <Text style={styles.detail2}>Come to Bayramian Hall 413 to see all the amazing career-focused books in our library.</Text>
+                        </View>
+                        <View style={styles.oval3}/>
+                        <Image style={styles.seGraphics3} source={require('../../img/Resources/Alvin_SE_illustration_vector_015-06.png')}/>
+                        <View style={styles.textBox3}>
+                            <Text style={styles.detail3}>Explore Pathways and SUNlink, our two unique online services. Take part in an Information Session to learn about particular jobs or companies. We have the tools to help you succeed! </Text>
+                        </View>
+                    </ScrollView>
+                </LinearGradient>
             </SafeAreaView>
         );
     }
@@ -36,7 +39,6 @@ export class Resources extends Component {
 
 const styles = StyleSheet.create({
     mainContainer:{
-        backgroundColor: '#6078DD',
         width: width,
         height: height,
     },

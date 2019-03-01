@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text, SafeAreaView,Button, TouchableOpacity, Image, StyleSheet,ScrollView, View, Dimensions} from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
+import LinearGradient from "react-native-linear-gradient";
 
 const {width, height} = Dimensions.get('window')
 export class Directions extends Component {
@@ -11,19 +12,21 @@ export class Directions extends Component {
     render() {
         return (
             <SafeAreaView style={styles.mainContainer}>
-                <ScrollView contentContainerStyle={styles.container}>
-                    <View style={styles.oval}/>
-                    <Image style={styles.seGraphics1} source={require('../../img/Direction/Alvin_SE_illustration_vector_015-09.png')}/>
-                    <Text style={styles.titles}>Connections</Text>
-                    <View style={styles.textBox}>
-                        <Text style={styles.detail}>The Career Center wants to help each CSUN student succeed in their chosen fields, but the path to success is not always a straight one.</Text>
-                    </View>
-                    <View style={styles.oval2}/>
-                    <Image style={styles.seGraphics2} source={require('../../img/Direction/Alvin_SE_illustration_vector_015-09.png')}/>
-                    <View style={styles.textBox2}>
-                        <Text style={styles.detail2}>Checking in with yourself, reevaluating your goals and meeting with knowledgeable Career Center staff can help ensure you stay on course to achieve your dreams.</Text>
-                    </View>
-                </ScrollView>
+                <LinearGradient colors={['#82CFCA', '#84D6AD']}>
+                    <ScrollView contentContainerStyle={styles.container}>
+                        <View style={styles.oval}/>
+                        <Image style={styles.seGraphics1} source={require('../../img/Direction/Alvin_SE_illustration_vector_015-09.png')}/>
+                        <Text style={styles.titles}>Connections</Text>
+                        <View style={styles.textBox}>
+                            <Text style={styles.detail}>The Career Center wants to help each CSUN student succeed in their chosen fields, but the path to success is not always a straight one.</Text>
+                        </View>
+                        <View style={styles.oval2}/>
+                        <Image style={styles.seGraphics2} source={require('../../img/Direction/Alvin_SE_illustration_vector_015-09.png')}/>
+                        <View style={styles.textBox2}>
+                            <Text style={styles.detail2}>Checking in with yourself, reevaluating your goals and meeting with knowledgeable Career Center staff can help ensure you stay on course to achieve your dreams.</Text>
+                        </View>
+                    </ScrollView>
+                </LinearGradient>
             </SafeAreaView>
         );
     }
@@ -31,8 +34,8 @@ export class Directions extends Component {
 
 const styles = StyleSheet.create({
     mainContainer:{
-        backgroundColor: '#82CFCA',
-
+        width: width,
+        height: height,
     },
     container:{
         display: 'flex',
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
     },
     textBox2:{
         width: 331,
-        height: 250,
+        height: 300,
     },
     seGraphics1:{
         width: 333,

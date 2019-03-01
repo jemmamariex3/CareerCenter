@@ -22,7 +22,7 @@
 //   (height === 812 || width === 812);
 //
 // const isAndroidRTL = I18nManager.isRTL && Platform.OS === 'android';
-// JT 2/8/19
+// JT 3/1/19
 
 
 import React, {Component} from 'react';

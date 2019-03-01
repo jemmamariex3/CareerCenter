@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text, SafeAreaView,Button, TouchableOpacity, Image, StyleSheet,ScrollView, View, Dimensions} from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
+import LinearGradient from "react-native-linear-gradient";
 
 const {width, height} = Dimensions.get('window')
 export class Counseling extends Component {
@@ -11,19 +12,21 @@ export class Counseling extends Component {
     render() {
         return (
             <SafeAreaView style={styles.mainContainer}>
-                <ScrollView contentContainerStyle={styles.container}>
-                    <View style={styles.oval}/>
-                    <Image style={styles.seGraphics1} source={require('../../img/Counseling/Alvin_SE_illustration_vector_015-04.png')}/>
-                    <Text style={styles.titles}>Counseling</Text>
-                    <View style={styles.textBox}>
-                        <Text style={styles.detail}>When you think of the Career Center, you probably think of our accomplished Career Counselors and skilled Peer Educators.</Text>
-                    </View>
-                    <View style={styles.oval2}/>
-                    <Image style={styles.seGraphics1} source={require('../../img/Counseling/Alvin_SE_illustration_vector_015-04.png')}/>
-                    <View style={styles.textBox2}>
-                        <Text style={styles.detail2}>Think of both as caring and knowledgeable tour guides on your college journey, helping you learn more about yourself and the world of work, choose an academic direction that’s right for your goals, and create a plan of action to point you towards success in school and your career. </Text>
-                    </View>
-                </ScrollView>
+                <LinearGradient colors={['#E84C37', '#E67D2F']}>
+                    <ScrollView contentContainerStyle={styles.container}>
+                        <View style={styles.oval}/>
+                        <Image style={styles.seGraphics1} source={require('../../img/Counseling/Alvin_SE_illustration_vector_015-04.png')}/>
+                        <Text style={styles.titles}>Counseling</Text>
+                        <View style={styles.textBox}>
+                            <Text style={styles.detail}>When you think of the Career Center, you probably think of our accomplished Career Counselors and skilled Peer Educators.</Text>
+                        </View>
+                        <View style={styles.oval2}/>
+                        <Image style={styles.seGraphics1} source={require('../../img/Counseling/Alvin_SE_illustration_vector_015-04.png')}/>
+                        <View style={styles.textBox2}>
+                            <Text style={styles.detail2}>Think of both as caring and knowledgeable tour guides on your college journey, helping you learn more about yourself and the world of work, choose an academic direction that’s right for your goals, and create a plan of action to point you towards success in school and your career. </Text>
+                        </View>
+                    </ScrollView>
+                </LinearGradient>
             </SafeAreaView>
         );
     }
@@ -31,7 +34,6 @@ export class Counseling extends Component {
 
 const styles = StyleSheet.create({
     mainContainer:{
-        backgroundColor: '#E84C37',
         width: width,
         height: height,
     },
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
     },
     textBox2:{
         width: 331,
-        height: 300,
+        height: 320,
         marginTop: -15,
 
     },

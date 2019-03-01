@@ -1,3 +1,5 @@
+//The linear Gradients are using a library called react-native-linear-gradient JT 3/1/19
+
 import React, {Component} from 'react';
 import {
     Text,
@@ -12,6 +14,7 @@ import {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
+import LinearGradient from 'react-native-linear-gradient';
 
 export class SelfExploration extends Component {
     static navigationOptions = {
@@ -19,35 +22,34 @@ export class SelfExploration extends Component {
     };
     render() {
         return (
-            <SafeAreaView style={styles.mainContainer}>
-                <ScrollView contentContainerStyle={styles.container}>
-                <View style={styles.oval}/>
-                <Image style={styles.seGraphics1} source={require('../../img/Exploration/Alvin_SE_illustration_vector_015-05.png')}/>
-                <Text style={styles.titles}>Self-Exploration</Text>
-                <View style={styles.textBox}>
-                    <Text style={styles.detail}>The first step is you! Self-Exploration allows you to learn more about who you are and who you want to be. </Text>
-                </View>
-                <View style={styles.oval2}/>
-                <Image style={[styles.seGraphics2, styles.seGraphics]} source={require('../../img/Exploration/Alvin_SE_illustration_vector_012_C-03.png')}/>
-                <View style={styles.textBox2}>
-                    <Text style={styles.detail2}>Knowing what you’re good at, what you’re interested in, and what is important to you will help to clarify different options and determine the right ones for you.</Text>
-                </View>
-                <View style={styles.oval3}/>
+            <SafeAreaView>
+                <LinearGradient colors={['#F48E29', '#FCC74D']}>
+                    <ScrollView contentContainerStyle={styles.container}>
+                    <View style={styles.oval}/>
+                    <Image style={styles.seGraphics1} source={require('../../img/Exploration/Alvin_SE_illustration_vector_015-05.png')}/>
+                    <Text style={styles.titles}>Self-Exploration</Text>
+                    <View style={styles.textBox}>
+                        <Text style={styles.detail}>The first step is you! Self-Exploration allows you to learn more about who you are and who you want to be. </Text>
+                    </View>
+                    <View style={styles.oval2}/>
+                    <Image style={[styles.seGraphics2, styles.seGraphics]} source={require('../../img/Exploration/Alvin_SE_illustration_vector_012_C-03.png')}/>
+                    <View style={styles.textBox2}>
+                        <Text style={styles.detail2}>Knowing what you’re good at, what you’re interested in, and what is important to you will help to clarify different options and determine the right ones for you.</Text>
+                    </View>
+                    <View style={styles.oval3}/>
 
-                <Image style={[styles.seGraphics3, styles.seGraphics]} source={require('../../img/Exploration/Alvin_SE_illustration_vector_012_C-04.png')}/>
-                <View style={styles.textBox3}>
-                    <Text style={styles.detail3}>Whether it’s through interactive activities on Pathways or introspective games provided by a counselor, we want to help each CSUN student on their own unique path to success.</Text>
-                </View>
-                </ScrollView>
+                    <Image style={[styles.seGraphics3, styles.seGraphics]} source={require('../../img/Exploration/Alvin_SE_illustration_vector_012_C-04.png')}/>
+                    <View style={styles.textBox3}>
+                        <Text style={styles.detail3}>Whether it’s through interactive activities on Pathways or introspective games provided by a counselor, we want to help each CSUN student on their own unique path to success.</Text>
+                    </View>
+                    </ScrollView>
+                </LinearGradient>
             </SafeAreaView>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    mainContainer:{
-        backgroundColor: '#F48E29',
-    },
     container:{
         display: 'flex',
         flexDirection: 'column',
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
     },
     textBox3:{
         width: 331,
-        height: 150,
+        height: 200,
         marginTop: 40,
     },
 
