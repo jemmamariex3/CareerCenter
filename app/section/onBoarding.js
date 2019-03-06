@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
 
 const slides = [
     {
-        key: 1,
+        key: '1',
         title: 'Self-Exploration',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Exploration/Alvin_SE_illustration_vector_015-05.png'),
@@ -188,7 +188,7 @@ const slides = [
 
 },
     {
-        key: 2,
+        key: '2',
         title: 'Counseling',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Counseling/Alvin_SE_illustration_vector_015-04.png'),
@@ -202,7 +202,7 @@ const slides = [
         titleStyle: styles.counselTitle
     },
     {
-        key: 3,
+        key: '3',
         title: 'Resources',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Resources/Alvin_SE_illustration_vector_015-06.png'),
@@ -216,7 +216,7 @@ const slides = [
         titleStyle: styles.resourceTitle
     },
     {
-        key: 4,
+        key: '4',
         title: 'Connections',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Connections/Alvin_SE_illustration_vector_015-08.png'),
@@ -231,7 +231,7 @@ const slides = [
 
     },
     {
-        key: 5,
+        key: '5',
         title: 'Readiness',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Readiness/Alvin_SE_illustration_vector_015-07.png'),
@@ -246,7 +246,7 @@ const slides = [
 
     },
     {
-        key: 6,
+        key: '6',
         title: 'Direction',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
         image: require('../img/Direction/Alvin_SE_illustration_vector_015-09.png'),
@@ -261,7 +261,7 @@ const slides = [
 
     },
     {
-        key: 7,
+        key: '7',
         title: 'Events',
         text: 'The Career Center hosts a broad array of Career Fairs, Employer Info Sessions, and Workshops/Programs. For full details and how to reserve your slot for Info Session, Workshops and Networking Events, login to SUNlink.',
         image: require('../img/Events/eventsLogo.png'),
@@ -276,7 +276,7 @@ const slides = [
 
     },
     {
-        key: 8,
+        key: '8',
         title: 'Cinthy',
         text: 'Chat with the Career Center mascot Cinthy and ask her any questions you have.',
         image: require('../img/Cinthy/cinthyLogo.png'),
@@ -291,7 +291,7 @@ const slides = [
 
     },
     {
-        key: 9,
+        key: '9',
         title: 'E-Learning',
         text: 'Access tutorials and videos to learn more about the Career Center.',
         image: require('../img/Elearning/elearning.png'),

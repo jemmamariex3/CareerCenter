@@ -72,12 +72,15 @@ export class Events extends Component<Props> {
         const { navigate } = this.props.navigation;
 
         return(
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView onContentStyle={styles.container}>
+                <View style={styles.logoContainer}>
+                    <Image source={require('../img/CC_logo.png')} style={styles.cclogo}/>
+                </View>
                 <ScrollView style={styles.description}>
 
                     {initialArr.map((prop, key) => {
                         return (
-                            <TouchableOpacity onPress={this._showModal}>
+                            <TouchableOpacity onPress={this._showModal} key={key}>
                                 <View style={styles.textBox}>
                                     <View style={styles.imgHolder}>
                                         <Image style={styles.imageDisplay} source={{uri: prop.img }}/>
@@ -132,8 +135,11 @@ export class Events extends Component<Props> {
 }
 const styles = StyleSheet.create({
     container: {
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center',
         flex:1,
-        position: 'relative',
+        // position: 'relative',
         backgroundColor:'rgba(222,228,242,.30)'
 
     },
@@ -207,6 +213,19 @@ const styles = StyleSheet.create({
         height:160,
         borderRadius:20
 
+    },
+    logoContainer:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf:"stretch",
+        margin:10,
+        zIndex: 5,
+        height: 30
+    },
+    cclogo:{
+        width: 250,
+        height: 25,
     },
 
     //EVENTS MODAL STYLING

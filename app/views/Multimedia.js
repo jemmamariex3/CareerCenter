@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         margin:10,
-        marginBottom: -10,
-        zIndex: 5
+        zIndex: 5,
+        height: 30
     },
     cclogo:{
         width: 250,
