@@ -21,19 +21,11 @@ import {LogoTitle} from "./LogoTitle";
 export const LogoRT =  createStackNavigator({
     Users: {
         screen: MyTabs,
-        navigationOptions: {
-            header: false
-        }
+
     },
     ExplorationRT: {
         screen: SelfExploration,
-        navigationOptions: () => ({
-            headerTitle: <LogoTitle/>,
-            headerBackTitle: 'Home',
-            headerStyle: {
-                backgroundColor: '#f4511e',
-            },
-        }),
+
     },
     CounselingRT: {
         screen: Counseling,
@@ -51,4 +43,5 @@ export const LogoRT =  createStackNavigator({
         screen: Directions,
     },
     initialRouteName:'Users',
+
 });

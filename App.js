@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchOpacity} from 'react-native';
+import {TouchOpacity, Image, View} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import {MyTabs} from "./app/section/TabNav";
 import {LogoRT} from "./app/section/StackNav";
@@ -22,6 +22,9 @@ const MyStack =  createStackNavigator({
     },
     Stack:{
         screen: LogoRT,
+        navigationOptions: {
+            headerTitle: <View><Image style={{width: 250, height: 25}} y source={require('./app/img/CC_logo.png')}/></View>
+        }
     },
     initialRouteName:'onBoardingRT',
 });
