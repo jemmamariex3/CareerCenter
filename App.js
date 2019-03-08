@@ -22,9 +22,6 @@ const MyStack =  createStackNavigator({
     },
     Stack:{
         screen: LogoRT,
-        navigationOptions: {
-            headerTitle: <View><Image style={{width: 250, height: 25}} y source={require('./app/img/CC_logo.png')}/></View>
-        }
     },
     initialRouteName:'onBoardingRT',
 });
