@@ -10,11 +10,14 @@
 // once nested, the prop needs to be manually passed through the component. Please read into the react-navigation docs if needed
 // for now there is no need to mess with the navigation structure.
 
-//There are both stylesheet styling and inline styling.
-
+//binded function toggleModel2 to constructor.
+//purpose of the function is to help toggle states within the child component, Event.js (./Help.js)
+//toggleModel2 is passed entirely in the Help component line 87 as an attribute.
+//state is switched in child component and is sent back into the parent component (Users.js) and toggles isModalVisible2 to false
+//isModalVisible2 will close the second modal. JT 1/25/19
 // for ios android interface:
 // const { width, height } = Dimensions.get('window');
-//
+
 // const isIphoneX =
 //   Platform.OS === 'ios' &&
 //   !Platform.isPad &&
@@ -26,87 +29,19 @@
 
 
 import React, {Component} from 'react';
-import {TouchableOpacity, PixelRatio,StyleSheet, Text, SafeAreaView,View, Image, Button, ScrollView, Dimensions} from 'react-native';
-import {MainLogo} from "../img/career_center_logo.png";
-import Modal from 'react-native-modal';
-import {Pin} from "../section/Pin";
-import {Help} from "../section/Help";
-
-const {width} = Dimensions.get('window').width * PixelRatio.get();
-const {height} = Dimensions.get("window").height * PixelRatio.get();
+import {TouchableOpacity, PixelRatio,StyleSheet, Text, SafeAreaView,View, Image, Dimensions} from 'react-native';
+import {Header} from '../section/Header';
 
 export class Users extends Component<Props> {
     static navigationOptions = {
         header:null
     };
 
-    //binded function toggleModel2 to constructor.
-    //purpose of the function is to help toggle states within the child component, Event.js (./Help.js)
-    //toggleModel2 is passed entirely in the Help component line 87 as an attribute.
-    //state is switched in child component and is sent back into the parent component (Users.js) and toggles isModalVisible2 to false
-    //isModalVisible2 will close the second modal. JT 1/25/19
-    constructor(props) {
-        super(props);
-        this.state = {
-            isModalVisible1: false,
-            isModalVisible2: false
-        }
-        this.toggleModal2 = this.toggleModal2.bind(this)
-    }
-    _showModal1 = () => this.setState({ isModalVisible1: true })
-    _hideModal1 = () => this.setState({ isModalVisible1: false })
-
-    _showModal2 = () => this.setState({ isModalVisible2: true })
-
-    toggleModal2(){
-        this.setState({
-            isModalVisible2: false
-        })
-    }
     render() {
         const { navigate } = this.props.navigation;
         return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.header}>
-                <TouchableOpacity onPress={this._showModal1}><Image style={styles.pin} source={require("../img/pin.png")}/></TouchableOpacity>
-                <Image style={styles.cclogo} source={require('../img/CC_logo.png')}/>
-                <TouchableOpacity onPress={this._showModal2}><Image style={styles.help} source={require("../img/help.png")}/></TouchableOpacity>
-            </View>
-            <Modal
-                isVisible={this.state.isModalVisible1}
-                animationType = "fade"
-                onBackdropPress={() => this.setState({ isVisible1: false })}
-                backdropOpacity={.50}
-                animationInTiming={200}
-                animationOutTiming={200}
-            >
-                <SafeAreaView style={styles.pinContainer}>
-                    <ScrollView style={styles.scrollContainer}>
-                        <Pin/>
-                    </ScrollView>
-                    <Button
-                        title="Return to Menu"
-                        onPress={this._hideModal1}
-                        style={styles.exit}
-                    />
-                </SafeAreaView>
-
-            </Modal>
-
-            <Modal
-                isVisible={this.state.isModalVisible2}
-                animationType = "fade"
-                onBackdropPress={() => this.setState({ isVisible2: false })}
-                backdropOpacity={.50}
-                animationInTiming={200}
-                animationOutTiming={200}
-            >
-                <SafeAreaView style={styles.helpContainer}>
-                    <Help toggleModal2 = {this.toggleModal2}/>
-                </SafeAreaView>
-            </Modal>
-
-            {/*MAJOR BUTTONS*/}
+            <Header/>
             <TouchableOpacity onPress={() => navigate('ExplorationRT')}>
                 <View style={[styles.button2, styles.btnback,{backgroundColor:'#f6ba61',shadowColor:'#f6ba61'}]}>
                     <View style={[styles.button,styles.btnfront,{borderColor: '#f6ba61',backgroundColor: '#fefbf5'}]}>
@@ -219,11 +154,6 @@ const styles = StyleSheet.create({
             color: '#333333',
             marginBottom: 5,
     },
-    header:{
-        flexDirection: 'row',
-        justifyContent:'space-around',
-
-    },
     button:{
         flexDirection: 'row',
         width: 330,
@@ -250,14 +180,7 @@ const styles = StyleSheet.create({
     btnFront:{
         position: 'absolute'
     },
-    // title:{
-    //     position: 'absolute',
-    //     width: 350,
-    //     top: 480,
-    //     left: 30,
     btnback:{
-        // position: 'absolute',
-        // left: 30,
         shadowOpacity: 0.5,
         shadowRadius: 1,
         shadowOffset: {
@@ -283,49 +206,6 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         fontFamily: 'Arial-BoldMT',
         fontSize:20
-    },
-
-    // HELP MODAL STYLING
-    help:{
-        width: 23,
-        height: 23
-    },
-    helpContainer:{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#DCDCDC",
-        borderColor: "#C0C0C0",
-        borderWidth: 2,
-        width: width,
-        height: height,
-    },
-    //PIN MODAL STYLING
-    pinContainer:{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#DCDCDC",
-        borderRadius: 18,
-        borderColor: "#C0C0C0",
-        borderWidth: 2,
-        marginHorizontal: 15,
-        marginVertical: 10,
-        width: 310,
-        height:480,
-    },
-     pin:{
-         width: 25,
-         height: 25
-     },
-    scrollContainer:{
-        margin: 20
-    },
-    exit:{
-        marginLeft: 50,
-        padding: 0,
-        width: 20,
-        height: 20
     },
 
 });

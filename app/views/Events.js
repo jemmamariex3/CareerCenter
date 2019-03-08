@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import {StyleSheet, SafeAreaView, Text, View, ScrollView, Image,TouchableOpacity, Button} from 'react-native';
 import Modal from "react-native-modal";
 import {Event} from "../section/Event";
+import {Header} from "../section/Header";
 
 
 // import {TabMenu} from "../section/TabMenu";
@@ -74,7 +75,7 @@ export class Events extends Component<Props> {
         return(
             <SafeAreaView onContentStyle={styles.container}>
                 <View style={styles.logoContainer}>
-                    <Image source={require('../img/CC_logo.png')} style={styles.cclogo}/>
+                    <Header/>
                 </View>
                 <ScrollView style={styles.description}>
 

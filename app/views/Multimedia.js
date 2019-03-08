@@ -11,6 +11,7 @@ import {Card, CardTitle,}  from 'react-native-material-cards';
 import { StyleSheet, ScrollView, PixelRatio, SafeAreaView, Image, View} from 'react-native';
 import YouTube from 'react-native-youtube';
 import axios from 'axios';
+import {Header} from "../section/Header";
 //import Icon from 'react-native-vector-icons/FontAwesome';
 
 const apiKey = '&key=AIzaSyD9l7K52vdaFGn2MRf24TI_j4A0ZT-2WCU';  //change to CSUN apiKey
@@ -66,7 +67,7 @@ export class Multimedia extends Component {
     return (
       <SafeAreaView>
           <View style={styles.logoContainer}>
-            <Image source={require('../img/CC_logo.png')} style={styles.cclogo}/>
+            <Header/>
           </View>
           <ScrollView
           style={styles.container}
@@ -135,7 +136,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        margin:10,
+        marginTop: 10,
+        marginBottom:-20,
         zIndex: 5,
         height: 30
     },
