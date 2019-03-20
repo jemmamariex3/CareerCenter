@@ -12,6 +12,7 @@
     "@expo/vector-icons": "^6.3.1",
     "aws-sdk": "^2.325.0",
     "axios": "^0.18.0",
+    "lottie-react-native": "^2.5.11",
     "react": "16.4.1",
     "react-native": "0.56.0",
     "react-native-app-intro-slider": "^1.0.1",
