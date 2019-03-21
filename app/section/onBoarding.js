@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: "#ffffff",
+        backgroundColor: "#ff8d2d",
 
     },
     lottie: {
@@ -272,7 +272,7 @@ const slides = [
         key: '6',
         title: 'Direction',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
-        image: require("../json/WORKPLACE_READINESS_01_v004"),
+        image: require("../json/DIRECTION_01_v002"),
         banner:require('../img/serviceBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         colors: ['#82CFCA', '#84D6AD'],
@@ -287,7 +287,7 @@ const slides = [
         key: '7',
         title: 'Events',
         text: 'The Career Center hosts a broad array of Career Fairs, Employer Info Sessions, and Workshops/Programs. For full details and how to reserve your slot for Info Session, Workshops and Networking Events, login to SUNlink.',
-        image: require("../json/WORKPLACE_READINESS_01_v004"),
+        image: require("../json/EVENTS_01_v002"),
         banner:require('../img/eventsBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         colors: ['#4E92EF', '#C655F0'],
@@ -313,11 +313,12 @@ const slides = [
         titleStyle: styles.cinthyTitle
 
     },
+    //E-learning is inverted and works. Too long of a process to invert all the masks for the other 7 --> will look into lottie swift
     {
         key: '9',
         title: 'E-Learning',
         text: 'Access tutorials and videos to learn more about the Career Center.',
-        image: require("../json/CAREER_RESOURCES_01_v004"),
+        image: require("../json/testing/E_LEARNING_01_v004"),
         banner:require('../img/learningBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         colors: ['#76E85B', '#69D7FF'],
