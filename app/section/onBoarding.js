@@ -1,7 +1,9 @@
+// Please reference https://medium.com/react-native-training/lottie-react-native-tutorial-162d91840720 for lottie installation for ios and android
 import React, {Component} from 'react';
 import { StyleSheet,View, Text, SafeAreaView, Image, Dimensions} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import LinearGradient from 'react-native-linear-gradient';
+import LottieView from 'lottie-react-native';
 
 const styles = StyleSheet.create({
     mainContent: {
@@ -20,6 +22,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: "#ffffff",
 
+    },
+    lottie: {
+      zIndex: -1,
     },
     explore: {
         width: 315,
@@ -83,63 +88,81 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textTransform: 'uppercase',
         fontSize:24,
-        textAlign: 'center'
+        textAlign: 'center',
+        position:"absolute",
+        top: 275
     },
     counselTitle:{
         color:'#E84C37',
         fontWeight: 'bold',
         textTransform: 'uppercase',
         fontSize:24,
-        textAlign: 'center'
+        textAlign: 'center',
+        position:"absolute",
+        top: 275
     },
     resourceTitle:{
         color:'#91A1CC',
         fontWeight: 'bold',
         textTransform: 'uppercase',
         fontSize:24,
-        textAlign: 'center'
+        textAlign: 'center',
+        position:"absolute",
+        top: 275
     },
     connectionTitle:{
         color:'#2EA4DC',
         fontWeight: 'bold',
         textTransform: 'uppercase',
         fontSize:24,
-        textAlign: 'center'
+        textAlign: 'center',
+        position:"absolute",
+        top: 275
     },
     readinessTitle:{
         color:'#5C4C92',
         fontWeight: 'bold',
         textTransform: 'uppercase',
         fontSize:24,
-        textAlign: 'center'
+        textAlign: 'center',
+        position:"absolute",
+        top: 275
     },
     directionTitle:{
         color:'#82CFCA',
         fontWeight: 'bold',
         textTransform: 'uppercase',
         fontSize:24,
-        textAlign: 'center'
+        textAlign: 'center',
+        position:"absolute",
+        top: 275
     },
     eventsTitle:{
         color:'#b95bef',
         fontWeight: 'bold',
         textTransform: 'uppercase',
         fontSize:24,
-        textAlign: 'center'
+        textAlign: 'center',
+        position:"absolute",
+        top: 275
     },
     cinthyTitle:{
         color:'#87ddf4',
         fontWeight: 'bold',
         textTransform: 'uppercase',
         fontSize:24,
-        textAlign: 'center'
+        textAlign: 'center',
+        position:"absolute",
+        top: 275
     },
     learningTitle:{
         color:'#7ee77a',
         fontWeight: 'bold',
         textTransform: 'uppercase',
         fontSize:24,
-        textAlign: 'center'
+        textAlign: 'center',
+        position:"absolute",
+        top: 275
     },
     service:{
         width: 215,
@@ -176,7 +199,7 @@ const slides = [
         key: '1',
         title: 'Self-Exploration',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
-        image: require('../img/Exploration/Alvin_SE_illustration_vector_015-05.png'),
+        image: require('../json/SELF_EXPLORATION_01_v004'),
         banner:require('../img/serviceBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         imageStyle: styles.explore,
@@ -191,7 +214,7 @@ const slides = [
         key: '2',
         title: 'Counseling',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
-        image: require('../img/Counseling/Alvin_SE_illustration_vector_015-04.png'),
+        image: require('../json/COUNSELING_ADVISEMENT_01_v006'),
         banner:require('../img/serviceBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         imageStyle: styles.counsel,
@@ -205,7 +228,7 @@ const slides = [
         key: '3',
         title: 'Resources',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
-        image: require('../img/Resources/Alvin_SE_illustration_vector_015-06.png'),
+        image: require("../json/CAREER_RESOURCES_01_v004"),
         banner:require('../img/serviceBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         imageStyle: styles.resource,
@@ -219,7 +242,7 @@ const slides = [
         key: '4',
         title: 'Connections',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
-        image: require('../img/Connections/Alvin_SE_illustration_vector_015-08.png'),
+        image:require("../json/WORKPLACE_CONNECTIONS_01_v002"),
         banner:require('../img/serviceBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         imageStyle: styles.connect,
@@ -234,7 +257,7 @@ const slides = [
         key: '5',
         title: 'Readiness',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
-        image: require('../img/Readiness/Alvin_SE_illustration_vector_015-07.png'),
+        image: require("../json/WORKPLACE_READINESS_01_v004"),
         banner:require('../img/serviceBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         colors: ['#5C4C92', '#6972E3'],
@@ -249,7 +272,7 @@ const slides = [
         key: '6',
         title: 'Direction',
         text: 'The Career Center offers career services to all currently enrolled CSUN students and eligible alumni',
-        image: require('../img/Direction/Alvin_SE_illustration_vector_015-09.png'),
+        image: require("../json/WORKPLACE_READINESS_01_v004"),
         banner:require('../img/serviceBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         colors: ['#82CFCA', '#84D6AD'],
@@ -264,7 +287,7 @@ const slides = [
         key: '7',
         title: 'Events',
         text: 'The Career Center hosts a broad array of Career Fairs, Employer Info Sessions, and Workshops/Programs. For full details and how to reserve your slot for Info Session, Workshops and Networking Events, login to SUNlink.',
-        image: require('../img/Events/eventsLogo.png'),
+        image: require("../json/WORKPLACE_READINESS_01_v004"),
         banner:require('../img/eventsBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         colors: ['#4E92EF', '#C655F0'],
@@ -279,7 +302,7 @@ const slides = [
         key: '8',
         title: 'Cinthy',
         text: 'Chat with the Career Center mascot Cinthy and ask her any questions you have.',
-        image: require('../img/Cinthy/cinthyLogo.png'),
+        image: require("../json/WORKPLACE_READINESS_01_v004"),
         banner:require('../img/cinthyBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         colors: ['#FFE838', '#81DDFF'],
@@ -294,7 +317,7 @@ const slides = [
         key: '9',
         title: 'E-Learning',
         text: 'Access tutorials and videos to learn more about the Career Center.',
-        image: require('../img/Elearning/elearning.png'),
+        image: require("../json/CAREER_RESOURCES_01_v004"),
         banner:require('../img/learningBanner.png'),
         logo:require('../img/cc_logo_white.png'),
         colors: ['#76E85B', '#69D7FF'],
@@ -305,7 +328,14 @@ const slides = [
         titleStyle: styles.learningTitle
     },
 ];
+
+
+
 export class onBoarding extends Component {
+
+    componentDidMount() {
+        this.animation.play();
+    }
     static navigationOptions = {
         header:null
     };
@@ -318,22 +348,37 @@ export class onBoarding extends Component {
             colors={props.colors}
             start={{x: 0, y: .1}} end={{x: .1, y: 1}}
         >
-            <SafeAreaView style={styles.mainContent}>
                 <Image source={props.logo} style={props.logoStyle}/>
                 <Image source={props.banner} style={props.bannerStyle}/>
                 <View style={styles.imgContainer}>
-                    <Image source={props.image} style={props.imageStyle}/>
+                    <LottieView
+                        ref={animation => {
+                            this.animation = animation;
+                        }}
+                        autoPlay={true}
+                        style={styles.lottie}
+                        source={props.image}
+                    />
+                    {/*<Image source={props.image} style={props.imageStyle}/>*/}
                     <Text style={props.titleStyle}>{props.title}</Text>
                 </View>
                 <Text style={props.textStyle}>{props.text}</Text>
-            </SafeAreaView>
         </LinearGradient>
     );
 
     render(){
+
+
         const { navigate } = this.props.navigation;
         return(
-                <AppIntroSlider slides={slides} renderItem={this._renderItem} onDone={() => navigate('Tabs')} showSkipButton={true} onSkip={() => navigate('Tabs')} showPrevButton={true}/>
+                <AppIntroSlider
+                    slides={slides}
+                    renderItem = { this._renderItem }
+                    onDone={() => navigate('Tabs')}
+                    showSkipButton={true}
+                    onSkip={() => navigate('Tabs')}
+                    showPrevButton={true}
+                />
         )
 
     }
