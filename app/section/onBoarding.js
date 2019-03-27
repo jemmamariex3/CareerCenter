@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: "#ff8d2d",
+        backgroundColor: "#ffffff",
 
     },
     lottie: {
