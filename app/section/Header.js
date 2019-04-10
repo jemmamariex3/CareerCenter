@@ -5,9 +5,22 @@ import {MainLogo} from "../img/career_center_logo.png";
 import Modal from 'react-native-modal';
 import {Pin} from "../section/Pin";
 import {Help} from "../section/Help";
+import iPhoneSize from '../src/helper/utils'
 
 const {width} = Dimensions.get('window').width * PixelRatio.get();
 const {height} = Dimensions.get("window").height * PixelRatio.get();
+
+const size = iPhoneSize();
+let logoWidth = 220;
+let logoHeight = 22;
+
+if(size === 'medium'){
+    logoWidth = 260;
+    logoHeight = 27;
+}else if(size === 'large'){
+    logoWidth = 300;
+    logoHeight = 30;
+}
 
 export class Header extends Component<Props> {
     static navigationOptions = {
@@ -81,27 +94,29 @@ export class Header extends Component<Props> {
 const styles = StyleSheet.create({
     container: {
         display:'flex',
-        justifyContent:'center',
+        justifyContent:'space-between',
         alignItems:'center',
+        marginLeft: 10,
+        marginRight: 10,
         backgroundColor:'rgba(222,228,242,.30)',
     },
     cclogo:{
-        width: 250,
-        height: 25,
-        marginLeft: 10,
-        marginRight: 10
+        width: logoWidth,
+        height: logoHeight,
     },
     header:{
         display:'flex',
         flexDirection:"row",
-        justifyContent:"space-between",
-        alignItems:"center"
+        justifyContent:"space-around",
+        alignItems:"center",
+        margin: 'auto'  
     },
 
     // HELP MODAL STYLING
     help:{
         width: 23,
-        height: 23
+        height: 23,
+        marginLeft: 10
     },
     helpContainer:{
         flex: 1,
@@ -129,7 +144,8 @@ const styles = StyleSheet.create({
     },
     pin:{
         width: 25,
-        height: 25
+        height: 25,
+        marginRight: 10
     },
     scrollContainer:{
         margin: 20

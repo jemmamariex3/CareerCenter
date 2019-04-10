@@ -146,7 +146,6 @@ const styles = StyleSheet.create({
     },
     description:{
         width: 400,
-        height: 550,
         backgroundColor:'rgba(222,228,242,.30)'
 
     },
