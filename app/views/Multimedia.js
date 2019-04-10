@@ -14,7 +14,7 @@ import axios from 'axios';
 import {Header} from "../section/Header";
 //import Icon from 'react-native-vector-icons/FontAwesome';
 
-const apiKey = '&key=AIzaSyD9l7K52vdaFGn2MRf24TI_j4A0ZT-2WCU';  //change to CSUN apiKey
+// const apiKey = '&key=#';  //change to CSUN CC apiKey
 const playlistId = '&playlistId=PLloTSYt_DRvg8VaqjH_lBFfbpScf7BitM';
 const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20';
 

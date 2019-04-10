@@ -31,12 +31,29 @@
 import React, {Component} from 'react';
 import {TouchableOpacity, PixelRatio,StyleSheet, Text, SafeAreaView,View, Image, Dimensions} from 'react-native';
 import {Header} from '../section/Header';
+import iPhoneSize from '../src/helper/utils'
 
+const size = iPhoneSize();
+let buttonWidth = '100%';
+let buttonHeight = 57;
+let button2Width = '90%';
+let button2Height = 57;
+
+if(size === 'medium'){
+    buttonHeight = 67;
+    button2Height = 67;
+}else if(size === 'large'){
+    buttonHeight = 75;
+    button2Height = 75;
+}
 export class Users extends Component<Props> {
     static navigationOptions = {
         header:null
     };
-
+    constructor(props){
+        super(props);
+        alert(iPhoneSize());
+    }
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -126,20 +143,20 @@ export class Users extends Component<Props> {
 
 const styles = StyleSheet.create({
     container: {
-        alignSelf: 'stretch',
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+        display: 'flex',
         flex: 1,
         paddingTop: 0,
-        margin:0,
         justifyContent:'space-around',
-        backgroundColor:'rgba(222,228,242,.30)'
-    },
-    cclogo:{
-        width: 250,
-        height: 25,
+        alignItems:'center',
+        alignSelf: 'stretch',
+        backgroundColor:'rgba(222,228,242,.30)',
+        marginLeft: -5
     },
     cc_logo:{
-        width: '15%',
-        height: '80%',
+        width: '17%',
+        height: '90%',
         marginTop:'auto',
         marginBottom:'auto',
         marginLeft:8,
@@ -156,9 +173,9 @@ const styles = StyleSheet.create({
     },
     button:{
         flexDirection: 'row',
-        width: 330,
-        height: 67,
-        borderRadius: 30,
+        width: buttonWidth,
+        height: buttonHeight,
+        borderRadius: 50,
         borderWidth: 2,
         borderColor: '#dedede',
         marginLeft:'auto',
@@ -169,9 +186,9 @@ const styles = StyleSheet.create({
     },
     button2:{
         flexDirection: 'row',
-        width: 330,
-        height: 67,
-        borderRadius: 30,
+        width: button2Width,
+        height: button2Height,
+        borderRadius: 50,
         marginLeft:'auto',
         marginRight:'auto',
         marginTop:'auto',
@@ -190,19 +207,16 @@ const styles = StyleSheet.create({
         zIndex: -1
     },
     text_box:{
-        width: 200,
+        justifyContent:'center',
+        width:'70%',        
         height: 40,
         // backgroundColor:'red',
-        marginTop:'auto',
+        marginTop:'auto',        
         marginBottom:'auto',
-        marginLeft:20,
-        marginRight:'auto',
-
     },
     textLabel:{
-        textAlign:'center',
-        marginTop:'auto',
-        marginBottom:'auto',
+        // backgroundColor:'pink',
+        textAlign:'center',        
         fontWeight:'bold',
         fontFamily: 'Arial-BoldMT',
         fontSize:20
