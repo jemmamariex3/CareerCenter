@@ -7,8 +7,8 @@
 */
 
 import React, {Component} from 'react';
-import {Card, CardTitle,}  from 'react-native-material-cards';
-import { StyleSheet, ScrollView, PixelRatio, SafeAreaView, Image, View} from 'react-native';
+import {Card}  from 'react-native-material-cards';
+import {StyleSheet, ScrollView, SafeAreaView, Image, View, TouchableOpacity, Text} from 'react-native';
 import YouTube from 'react-native-youtube';
 import axios from 'axios';
 import {Header} from "../section/Header";
@@ -18,126 +18,18 @@ import {Header} from "../section/Header";
 const playlistId = '&playlistId=PLloTSYt_DRvg8VaqjH_lBFfbpScf7BitM';
 const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20';
 
-export class Multimedia extends Component {
-    static navigationOptions = {
-        header: null
-    };
-
-  state = {
-    isLooping: false,
-    fullscreen: true,
-    containerMounted: false,
-    containerWidth: null,
-    playListInfo: [],
-  };
-
-  parsePlayListInfo = (response) => {
-    let i = 0;
-    let totalVideos = parseInt(response.pageInfo.totalResults);
-    let infoArray = [];
-    while(i < totalVideos){
-      infoArray[i] = {
-        videoId: response.items[i].snippet.resourceId.videoId,
-        videoTitle: response.items[i].snippet.title,
-      };
-      console.log(infoArray[i].videoId);
-      i++;
-    }
-    return infoArray;
-  }
-
-  loadYouTubePlaylist = () =>  {
-    axios.get(baseURL+playlistId+apiKey)
-          .then(res => {
-              this.setState({
-                playListInfo: this.parsePlayListInfo(res.data),
-              });
-          }).catch((error) => {
-            console.error(error);
-          });
-  }
-
-  componentDidMount() {
-    this.loadYouTubePlaylist();
-  }
-
-  render() {
-    const { navigate } = this.props.navigation;
-
-    return (
-      <SafeAreaView>
-          <View style={styles.logoContainer}>
-            <Header/>
-          </View>
-          <ScrollView
-          style={styles.container}
-          onLayout={({
-            nativeEvent: {
-              layout: { width },
-            },
-          }) => {
-            if (!this.state.containerMounted)
-              this.setState({ containerMounted: true });
-            if (this.state.containerWidth !== width)
-              this.setState({ containerWidth: width });
-          }}>
-        {this.state.playListInfo.map((prop) => {
-            return (
-              <Card style={styles.Card} key={prop.videoId}>
-                <YouTube
-                  ref={component => {
-                    this._youTubeRef= component;
-                  }}
-                  videoId={prop.videoId}
-                  style={[
-                        {
-                          height: PixelRatio.roundToNearestPixel(
-                          this.state.containerWidth / (16 / 9)
-                          ),
-                        },
-                        styles.player,
-                      ]}
-                />
-                <CardTitle
-                  title={prop.videoTitle}>
-                </CardTitle>
-              </Card>
-              );
-          })}
-        </ScrollView>
-      </SafeAreaView>
-    );
-  }
-}
-
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'rgba(222,228,242,.30)',
+        marginBottom: 60
     },
 
-    Card: {
-        margin: 40,
-        marginBottom: -10,
-        borderRadius: 10,
-        shadowOpacity: 0.5,
-        elevation: 3,
-        shadowRadius: 2,
-        shadowOffset: {
-            height: 6,
-            width: 1,
-        },
-    },
-
-    player: {
-        alignSelf: 'stretch',
-        borderRadius: 10,
-    },
     logoContainer:{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 10,
-        marginBottom:-20,
+        marginBottom: 20,
         zIndex: 5,
         height: 30
     },
@@ -145,4 +37,160 @@ const styles = StyleSheet.create({
         width: 250,
         height: 25,
     },
-  })
+    description:{
+        backgroundColor:'rgba(222,228,242,.30)'
+    },
+    date:{
+        marginTop: 2,
+        paddingLeft: 15,
+        paddingRight: 10,
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    dateMon:{
+        fontSize: 14,
+        fontWeight: "700"
+    },
+    dateNum:{
+        fontSize: 20,
+        fontWeight: "700"
+    },
+    videoTitle:{
+        padding: 20,
+        color:'rgba(208,13,45,1)',
+        fontSize: 25,
+        fontWeight: "400"
+    },
+    player: {
+        alignSelf: 'stretch',
+        height: '100%'
+    },
+    shareIcon:{
+        justifyContent:'center',
+        padding: 6,
+        top: 15,
+        height: 40,
+        width: '15%'
+    },
+    share:{
+        justifyContent:'center',
+        height: 25,
+        width: 25,
+        overflow: 'visible'
+    },
+    Card:{
+        marginHorizontal: 30,
+        marginVertical: 10,
+        borderRadius: 20,
+        backgroundColor: '#ffffff',
+        shadowOpacity: 0.05,
+        shadowRadius: 1,
+        shadowOffset: {
+            height: 6,
+            width: 6
+        },
+    },
+    infoHolder:{
+        height: 70,
+        width: '100%',
+        flexDirection:'row',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+    },
+    infoBox:{
+        width: '85%',
+    },
+    imgHolder:{
+        width: '100%',
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        height: 200,
+        overflow: 'hidden',
+    },
+    imageDisplay:{
+        position: 'absolute',
+        width: '100%',
+        height: '125%',
+    },
+});
+
+export class Multimedia extends Component {
+    static navigationOptions = {
+        header: null
+    };
+
+    state = {
+        isLooping: false,
+        fullscreen: true,
+        containerMounted: false,
+        containerWidth: null,
+        playListInfo: [],
+    };
+
+    parsePlayListInfo = (response) => {
+        let i = 0;
+        let totalVideos = parseInt(response.pageInfo.totalResults);
+        let infoArray = [];
+        while(i < totalVideos){
+            infoArray[i] = {
+                videoId: response.items[i].snippet.resourceId.videoId,
+                videoTitle: response.items[i].snippet.title,
+            };
+            console.log(infoArray[i].videoId);
+            i++;
+        }
+        return infoArray;
+    };
+
+    loadYouTubePlaylist = () =>  {
+        axios.get(baseURL+playlistId+apiKey)
+            .then(res => {
+                this.setState({
+                    playListInfo: this.parsePlayListInfo(res.data),
+                });
+            }).catch((error) => {
+            console.error(error);
+        });
+    };
+
+    componentDidMount() {
+        this.loadYouTubePlaylist();
+    }
+
+    render() {
+        const { navigate } = this.props.navigation;
+
+        return (
+            <SafeAreaView>
+                <View style={styles.logoContainer}>
+                    <Header/>
+                </View>
+                <ScrollView style={styles.container}>
+                    {this.state.playListInfo.map((prop) => {
+                        return (
+                            <Card style={styles.Card} key={prop.videoId}>
+                                <View style={styles.imgHolder}>
+                                    <YouTube
+                                        ref={component => {
+                                            this._youTubeRef= component;
+                                        }}
+                                        videoId={prop.videoId}
+                                        style={styles.player}
+                                    />
+                                </View>
+                                <View style={styles.infoHolder}>
+                                    <View style={styles.infoBox}>
+                                        <Text style={styles.videoTitle}>{prop.videoTitle}</Text>
+                                    </View>
+                                    <TouchableOpacity style={styles.shareIcon}>
+                                        <Image style={styles.share} source={require('../img/share.png')}/>
+                                    </TouchableOpacity>
+                                </View>
+                            </Card>
+                        );
+                    })}
+                </ScrollView>
+            </SafeAreaView>
+        );
+    }
+}
