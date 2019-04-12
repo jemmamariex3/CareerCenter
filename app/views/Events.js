@@ -1,9 +1,14 @@
 /*
-    --  Multimedia.js contains the template to display the specified playlist from the Career Center YouTube channel.
-    --  An HTTP Request calls the YouTube API and pulls a JSON object containg the information about the PlayList.
-    --  To see how data is structured and what information is available, the FULL URL can be entered in a browser.
-    --  Search results are restricted to retrieve 20 vidoes, but can be changed in the baseURL where &maxResults=20.
-    --  Timothy Spengler Febuary 7, 2019.
+    --  {initialArr.map((prop, key) => { } line 57 is the template that maps through initialArr
+    --  (an array of objects that contain the properties needed for the buttons)
+    --  Jemma Tiongson January 15, 2019.
+
+    --  Utilizes axios using the same structure as Multimedia.js
+    --  The baseURL refers to the hosted website that is to equal the officially deployed site.
+    --  Helper functions getMonth, getDate, and getTime adjust the raw DateTime values to the
+    --  appropriate display format.
+    --  The styling has been reworked to offer a more responsive design to any screen size.
+    --  Vicente Figueroa April 11, 2019.
 */
 
 import React, {Component} from 'react';
@@ -11,7 +16,6 @@ import {Card}  from 'react-native-material-cards';
 import {
     StyleSheet,
     ScrollView,
-    PixelRatio,
     SafeAreaView,
     Image,
     View,
@@ -24,6 +28,7 @@ import {Header} from "../section/Header";
 import Modal from "react-native-modal";
 import {Event} from "../section/Event";
 
+// TODO: Replace with official deployed events website
 const baseURL = 'https://eventsplanner.azurewebsites.net/api/events/';
 
 const styles = StyleSheet.create({

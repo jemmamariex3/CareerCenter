@@ -1,9 +1,13 @@
 /*
-    --  Multimedia.js contains the template to display the specified playlist from the Career Center YouTube channel.
-    --  An HTTP Request calls the YouTube API and pulls a JSON object containg the information about the PlayList.
+    --  Events.js contains the template to display the specified playlist from the Career Center YouTube channel.
+    --  An HTTP Request calls the YouTube API and pulls a JSON object containing the information about the Playlist.
     --  To see how data is structured and what information is available, the FULL URL can be entered in a browser.
-    --  Search results are restricted to retrieve 20 vidoes, but can be changed in the baseURL where &maxResults=20.
-    --  Timothy Spengler Febuary 7, 2019.
+    --  Search results are restricted to retrieve 20 videos, but can be changed in the baseURL where &maxResults=20.
+    --  Timothy Spengler February 7, 2019.
+
+    --  Readjusted styling to match the Events.js layout, defined by the prototype designed by AJ.
+    --  Removes some unused screen resizing values to set the new responsive design.
+    --  Vicente Figueroa April 11, 2019.
 */
 
 import React, {Component} from 'react';
@@ -14,7 +18,7 @@ import axios from 'axios';
 import {Header} from "../section/Header";
 //import Icon from 'react-native-vector-icons/FontAwesome';
 
-// const apiKey = '&key=#';  //change to CSUN CC apiKey
+// const apiKey = '&key=#';  // TODO: change to CSUN CC apiKey
 const playlistId = '&playlistId=PLloTSYt_DRvg8VaqjH_lBFfbpScf7BitM';
 const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20';
 
