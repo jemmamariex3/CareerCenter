@@ -4,6 +4,17 @@ import { StyleSheet,View, Text, SafeAreaView, Image, Dimensions} from 'react-nat
 import AppIntroSlider from 'react-native-app-intro-slider';
 import LinearGradient from 'react-native-linear-gradient';
 import LottieView from 'lottie-react-native';
+import iPhoneSize from '../src/helper/utils.js'
+
+const size = iPhoneSize();
+let marginMain = 0;
+
+
+if(size === 'medium'){
+    marginMain = 40;
+}else if(size === 'large'){
+    marginMain = 40;
+}
 
 const styles = StyleSheet.create({
     mainContent: {
@@ -183,7 +194,9 @@ const styles = StyleSheet.create({
     logo:{
         width: 231,
         height: 23,
-        margin: 30
+        margin: 30,
+        marginTop:marginMain,
+        
     },
     text:{
         color: '#ffffff',
