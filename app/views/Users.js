@@ -52,7 +52,7 @@ export class Users extends Component<Props> {
     };
     constructor(props){
         super(props);
-        alert(iPhoneSize());
+        // alert(iPhoneSize());
     }
     render() {
         const { navigate } = this.props.navigation;
