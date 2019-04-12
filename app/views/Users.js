@@ -1,31 +1,20 @@
-// Users.js contains the 6 mains buttons. and the modals for the pin and help button.
-// _showModal and _hideModal handles the state of the modals. (determines if they are shown or hidden)
-// the modals are from the react-native-modal library.
-// toggleModal2 is a function that closes the help modal directly using isModalVisible2 instead of using the _showModal2 and _hideModal2
-// It takes in the state change from its child (Help.js) through onDone={this.props.toggleModal2}.
+/*Users.js contains the 6 mains buttons. and the modals for the pin and help button.
+_showModal and _hideModal handles the state of the modals. (determines if they are shown or hidden)
+the modals are from the react-native-modal library.
+toggleModal2 is a function that closes the help modal directly using isModalVisible2 instead of using the _showModal2 and _hideModal2
+It takes in the state change from its child (Help.js) through onDone={this.props.toggleModal2}.
 
-//Navigation:
-// the  onPress={() => navigate('...')} within each TouchableOpacity button is a bit confusing.
-// since these 6 skills are specifically listed within the stack object, they passed down the navigate() function as a prop.
-// once nested, the prop needs to be manually passed through the component. Please read into the react-navigation docs if needed
-// for now there is no need to mess with the navigation structure.
+Navigation:
+the  onPress={() => navigate('...')} within each TouchableOpacity button is a bit confusing.
+since these 6 skills are specifically listed within the stack object, they passed down the navigate() function as a prop.
+once nested, the prop needs to be manually passed through the component. Please read into the react-navigation docs if needed
+for now there is no need to mess with the navigation structure.
 
-//binded function toggleModel2 to constructor.
-//purpose of the function is to help toggle states within the child component, Event.js (./Help.js)
-//toggleModel2 is passed entirely in the Help component line 87 as an attribute.
-//state is switched in child component and is sent back into the parent component (Users.js) and toggles isModalVisible2 to false
-//isModalVisible2 will close the second modal. JT 1/25/19
-// for ios android interface:
-// const { width, height } = Dimensions.get('window');
-
-// const isIphoneX =
-//   Platform.OS === 'ios' &&
-//   !Platform.isPad &&
-//   !Platform.isTVOS &&
-//   (height === 812 || width === 812);
-//
-// const isAndroidRTL = I18nManager.isRTL && Platform.OS === 'android';
-// JT 3/1/19
+binded function toggleModel2 to constructor.
+purpose of the function is to help toggle states within the child component, Event.js (./Help.js)
+toggleModel2 is passed entirely in the Help component line 87 as an attribute.
+state is switched in child component and is sent back into the parent component (Users.js) and toggles isModalVisible2 to false
+isModalVisible2 will close the second modal. JT 1/25/19*/
 
 
 import React, {Component} from 'react';
@@ -52,7 +41,6 @@ export class Users extends Component<Props> {
     };
     constructor(props){
         super(props);
-        // alert(iPhoneSize());
     }
     render() {
         const { navigate } = this.props.navigation;
