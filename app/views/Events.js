@@ -128,18 +128,17 @@ const styles = StyleSheet.create({
 
     //EVENTS MODAL STYLING
     eventContainer:{
-        alignItems: "center",
-        justifyContent: "center",
+        // alignItems: "center",
+        // justifyContent: "center",
         backgroundColor: "#DCDCDC",
         borderRadius: 18,
         borderColor: "#C0C0C0",
-        marginVertical: 10,
+        // marginBottom: 30,
         width: '100%',
-        height: '70%',
+        height: '90%',
     },
-    event:{
-        width: 25,
-        height: 25
+    exit:{
+        position: 'absolute'
     },
     scrollContainer:{
         margin: 20
@@ -154,7 +153,7 @@ export class Events extends Component<props> {
     _hideModal = () => this.setState({ isModalVisible: false });
 
     state = {
-        isModalVisible1: false,
+        isModalVisible: false,
         selectedEvent: "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
         isLooping: false,
         fullscreen: true,
@@ -238,7 +237,10 @@ export class Events extends Component<props> {
                     {this.state.eventInfo.map((prop) => {
                         return (
                             <Card style={styles.Card} key={prop.id}>
-                                <TouchableOpacity onPress={this._showModal} style={styles.imgHolder}>
+                                <TouchableOpacity onPress={ () => this.setState({
+                                    isModalVisible: true,
+                                    selectedEvent: prop
+                                })} style={styles.imgHolder}>
                                     <Image style={styles.imageDisplay} source={{uri: prop.img }}/>
                                 </TouchableOpacity>
                                 <View style={styles.infoHolder}>
@@ -265,19 +267,27 @@ export class Events extends Component<props> {
                 </ScrollView>
                 <Modal
                     isVisible={this.state.isModalVisible}
-                    animationType = "fade"
-                    onBackdropPress={() => this.setState({ isVisible: false })}
-                    backdropOpacity={.50}
-                    animationInTiming={200}
-                    animationOutTiming={200}
+                    // animationType = "fade"
+                    onBackdropPress={() => this._hideModal()}
+                    // backdropOpacity={.50}
+                    // animationInTiming={200}
+                    // animationOutTiming={200}
                 >
                     <SafeAreaView style={styles.eventContainer}>
-                        {/*<ScrollView style={styles.scrollContainer}>*/}
-                            <Image style={styles.imageDisplay} source={{uri: this.state.selectedEvent }}/>
-                        {/*</ScrollView>*/}
+                        <Event
+                            name={this.state.selectedEvent.name}
+                            desc={this.state.selectedEvent.desc}
+                            startDate={this.state.selectedEvent.startDate}
+                            endDate={this.state.selectedEvent.endDate}
+                            startTime={this.state.selectedEvent.startTime}
+                            endTime={this.state.selectedEvent.endTime}
+                            location={this.state.selectedEvent.location}
+                            flyer={this.state.selectedEvent.flyer}
+                            rsvp={this.state.selectedEvent.rsvp}
+                        />
                         <Button
                             title="Return to Event List"
-                            onPress={this._hideModal}
+                            onPress={() => this._hideModal()}
                             style={styles.exit}
                         />
                     </SafeAreaView>

@@ -4,7 +4,7 @@
 // 1/23/19 JT
 
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 
 
 export class Event extends Component {
@@ -14,29 +14,55 @@ export class Event extends Component {
     constructor(props){
         super(props);
         this.state = {
-            name: '',
-            desc: '',
-            date: '',
-            num: '',
-            time: '',
-            location: '',
-            img: '',
-            flyer: '',
-            rsvp: ''
+            name: this.props.name,
+            desc: this.props.desc,
+            startDate: this.props.startDate,
+            endDate: this.props.endDate,
+            startTime: this.props.startTime,
+            endTime: this.props.endTime,
+            time: this.props.time,
+            location: this.props.location,
+            flyer: this.props.flyer,
+            rsvp: this.props.rsvp
         }
     }
     render() {
         return (
             <View>
-                <Text style={styles.title}>Event Modal</Text>
+                <Text style={styles.title}>{this.state.name}</Text>
+                <Text style={styles.info}>{this.state.desc}</Text>
+                <View style={styles.imgHolder}>
+                    <Image style={styles.imageDisplay} source={{uri: this.state.flyer }}/>
+                </View>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    imgContainer:{
+        width: 500,
+        height: 300,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: "#ffffff",
+
+    },
+    imgHolder:{
+        alignItems: "center",
+        height: '90%',
+        width: '100%',
+        marginTop: 20,
+        padding: 20
+    },
+    imageDisplay:{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+    },
     spacer:{
-        marginBottom: 20
+        // marginBottom: 20
     },
     title:{
         fontWeight: 'bold',
