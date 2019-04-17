@@ -9,10 +9,29 @@ import React, {Component} from 'react';
 import {StyleSheet, View, Text, SafeAreaView, Image, Dimensions, PixelRatio} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {ServiceLogo} from './ServicesLogo'
+import iPhoneSize from '../src/helper/utils'
 import LinearGradient from 'react-native-linear-gradient';
 import LottieView from "lottie-react-native";
 
 const {width, height} = Dimensions.get('window')
+
+const size = iPhoneSize();
+let marginMain = 0;
+let logoWidth = 242;
+let logoHeight = 25;
+
+if(size === 'small'){
+    marginMain = 25;
+}else if(size === 'medium'){
+    marginMain = 40;
+    logoWidth = 270;
+    logoHeight = 28;
+}else if(size === 'large'){
+    marginMain = 40;
+    logoWidth = 270;
+    logoHeight = 28;
+}
+
 const styles = StyleSheet.create({
     mainContent: {
         display: 'flex',
@@ -183,11 +202,11 @@ const styles = StyleSheet.create({
         marginLeft: 30
     },
     logo:{
-        width: 231,
-        height: 23,
-        marginTop: 30,
-        marginBottom: 30,
-        marginLeft: 50
+        width: logoWidth,
+        height: logoHeight,
+        justifyContent:'center',
+        alignItems: 'center',
+        margin: marginMain
     },
     text:{
         color: '#ffffff',
