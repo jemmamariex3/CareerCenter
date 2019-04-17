@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     helpContainer:{
+        display:"flex",
         flex: 1,
         alignItems: "center",
         justifyContent: "center",

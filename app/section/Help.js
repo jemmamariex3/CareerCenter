@@ -12,6 +12,7 @@ import {ServiceLogo} from './ServicesLogo'
 import LinearGradient from 'react-native-linear-gradient';
 import LottieView from "lottie-react-native";
 
+const {width, height} = Dimensions.get('window')
 const styles = StyleSheet.create({
     mainContent: {
         display: 'flex',
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     imgContainer:{
-        width: 340,
+        width: width,
         height: 300,
         display: 'flex',
         justifyContent: 'center',
@@ -34,13 +35,10 @@ const styles = StyleSheet.create({
     counsel:{
         width: 307,
         height: 216,
-
-
     },
     resource:{
         width: 282,
         height: 236,
-
 
     },
     connect:{
