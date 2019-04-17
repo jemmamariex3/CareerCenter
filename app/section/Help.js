@@ -374,7 +374,7 @@ export class Help extends Component {
     render() {
         return (
             <SafeAreaView>
-                <AppIntroSlider contentContainerStyle={styles.onBoard} slides={slides} renderItem={this._renderItem} onDone={this.props.toggleModal2} showSkipButton={true} onSkip={this.props.toggleModal2} showPrevButton={true}/>
+                <AppIntroSlider slides={slides} renderItem={this._renderItem} onDone={this.props.toggleModal2} showSkipButton={true} onSkip={this.props.toggleModal2} showPrevButton={true}/>
             </SafeAreaView>
             )
     }

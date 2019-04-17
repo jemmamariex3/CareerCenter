@@ -1,8 +1,8 @@
 
 import React, {Component} from 'react';
-import {TouchableOpacity, PixelRatio,StyleSheet, Text, SafeAreaView,View, Image, Button, ScrollView, Dimensions} from 'react-native';
+import {TouchableOpacity, PixelRatio,StyleSheet, Text, SafeAreaView,View, Image, Button, ScrollView, Dimensions, Modal} from 'react-native';
 import {MainLogo} from "../img/career_center_logo.png";
-import Modal from 'react-native-modal';
+// import Modal from 'react-native-modal';
 import {Pin} from "../section/Pin";
 import {Help} from "../section/Help";
 import iPhoneSize from '../src/helper/utils'
@@ -14,13 +14,9 @@ const size = iPhoneSize();
 let logoWidth = 220;
 let logoHeight = 22;
 
-if(size === 'medium'){
-    logoWidth = 260;
-    logoHeight = 27;
-}else if(size === 'large'){
-    logoWidth = 300;
-    logoHeight = 30;
-}
+// if(size === 'small'){
+//     width: '100%'
+// }
 
 export class Header extends Component<Props> {
     static navigationOptions = {
@@ -54,7 +50,7 @@ export class Header extends Component<Props> {
                     <TouchableOpacity onPress={this._showModal2}><Image style={styles.help} source={require("../img/help.png")}/></TouchableOpacity>
                 </View>
                 <Modal
-                    isVisible={this.state.isModalVisible1}
+                    visible={this.state.isModalVisible1}
                     animationType = "fade"
                     onBackdropPress={() => this.setState({ isVisible1: false })}
                     backdropOpacity={.50}
@@ -75,16 +71,16 @@ export class Header extends Component<Props> {
                 </Modal>
 
                 <Modal
-                    isVisible={this.state.isModalVisible2}
+                    visible={this.state.isModalVisible2}
                     animationType = "fade"
                     onBackdropPress={() => this.setState({ isVisible2: false })}
                     backdropOpacity={.50}
                     animationInTiming={200}
                     animationOutTiming={200}
                 >
-                    <SafeAreaView style={styles.helpContainer}>
+                    <View style={styles.helpContainer}>
                         <Help toggleModal2 = {this.toggleModal2}/>
-                    </SafeAreaView>
+                    </View>
                 </Modal>
             </SafeAreaView>
         )
@@ -122,11 +118,9 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#DCDCDC",
-        borderColor: "#C0C0C0",
-        borderWidth: 2,
-        width: width,
-        height: height,
+        backgroundColor: "transparent",
+        borderColor: "transparent",
+
     },
     //PIN MODAL STYLING
     pinContainer:{
@@ -139,8 +133,8 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         marginHorizontal: 15,
         marginVertical: 10,
-        width: 310,
-        height:480,
+        width: width,
+        height: height,
     },
     pin:{
         width: 25,

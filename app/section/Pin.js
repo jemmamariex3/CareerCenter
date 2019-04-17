@@ -3,7 +3,16 @@
 
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native'
+import iPhoneSize from '../src/helper/utils.js'
 
+
+const size = iPhoneSize();
+let titleSize = 14;
+let infoSize = 12;
+if(size === 'small'){
+    titleSize = 12;
+    infoSize = 11;
+}
 
 export class Pin extends Component {
     static navigationOptions = {
@@ -49,7 +58,7 @@ export class Pin extends Component {
                 <Text style={styles.info}>9:00am - 10:45am</Text>
 
                 <View style={styles.spacer}/>
-                <Text style={[styles.info, styles.subInfo]}>*Please call us for further information about our hours.*</Text>
+                <Text style={styles.info}>*Please call us for further information about our hours.*</Text>
             </View>
         );
     }
@@ -67,15 +76,14 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color:'#5b4d90',
         textTransform: 'uppercase',
-        fontSize:14,
+        fontSize:titleSize,
         textAlign: 'center'
     },
     info:{
         textAlign: 'center',
         color: '#E84C37',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: infoSize,
+        flexWrap: 'wrap'
     },
-    subInfo:{
-        fontSize: 12
-    }
 });
