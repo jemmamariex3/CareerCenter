@@ -1,10 +1,18 @@
-//Event.js is the file that contains the information for the selected event button. A modal should open when the event button is clicked on.
-// This event component should be accepting props from the parent component, Events.js. Please take note that the parent is plural (app > views > Events.js)
-// .. sorry.
-// 1/23/19 JT
+/*
+    --  Event.js is the file that contains the information for the selected event button.
+    --  A modal should open when the event button is clicked on.
+    --  This event component should be accepting props from the parent component, Events.js. Please take note that the parent is plural (app > views > Events.js)
+    --  Jemma Tiongson January 23, 2019.
+
+    --  Parent Events.js passes props (pulled from the database) to the Event.js modal.
+    --  Events.js implements a ScrollView to display Title, Description, and Flyer preview.
+    --  Vicente Figueroa April 16, 2019.
+
+    TODO: Refactor css formats and finalize layout design
+*/
 
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet, Image, ScrollView} from 'react-native'
 
 
 export class Event extends Component {
@@ -28,52 +36,55 @@ export class Event extends Component {
     }
     render() {
         return (
-            <View>
+            <ScrollView style={styles.container}>
                 <Text style={styles.title}>{this.state.name}</Text>
                 <Text style={styles.info}>{this.state.desc}</Text>
-                <View style={styles.imgHolder}>
+                <View style={styles.imgContainer}>
                     <Image style={styles.imageDisplay} source={{uri: this.state.flyer }}/>
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    container:{
+        height: '100%',
+        width: '100%',
+    },
     imgContainer:{
-        width: 500,
-        height: 300,
-        display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: "#ffffff",
-
+        marginTop: 30,
+        marginBottom: 600,
+        paddingBottom: 30,
+        height: '90%',
+        width: '100%',
+    },
+    infoContainer:{
+        height: '10%',
+        alignItems: 'center'
     },
     imgHolder:{
         alignItems: "center",
-        height: '90%',
+        height: '100%',
         width: '100%',
-        marginTop: 20,
-        padding: 20
+        marginTop: 200,
     },
     imageDisplay:{
-        position: 'absolute',
         width: '100%',
-        height: '100%',
-    },
-    spacer:{
-        // marginBottom: 20
+        height: '90%',
     },
     title:{
+        marginTop: 24,
         fontWeight: 'bold',
-        color:'#5b4d90',
+        color:'rgba(208,13,45,1)',
         textTransform: 'uppercase',
-        fontSize:14,
+        fontSize: 20,
         textAlign: 'center'
     },
     info:{
         textAlign: 'center',
-        color: '#E84C37',
+        color: '#000000',
         fontWeight: 'bold'
     },
     subInfo:{

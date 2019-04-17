@@ -9,6 +9,13 @@
     --  appropriate display format.
     --  The styling has been reworked to offer a more responsive design to any screen size.
     --  Vicente Figueroa April 11, 2019.
+
+    --  Integrates Event.js modal when selecting an event.
+    --  Vicente Figueroa April 16, 2019.
+
+    TODO: Refresh and update event list by command (such as pull down to refresh) or automatically
+    TODO: Separate passed events from upcoming events, or have API do it, or manually delete passed events
+            or have a focus set to next upcoming event (select calendar button and resets to next event)
 */
 
 import React, {Component} from 'react';
@@ -20,8 +27,7 @@ import {
     Image,
     View,
     TouchableOpacity,
-    Text,
-    Button
+    Text
 } from 'react-native';
 import axios from 'axios';
 import {Header} from "../section/Header";
@@ -127,18 +133,28 @@ const styles = StyleSheet.create({
     },
 
     //EVENTS MODAL STYLING
+
+    //Height decreased to accommodate iPhone X
     eventContainer:{
         // alignItems: "center",
         // justifyContent: "center",
-        backgroundColor: "#DCDCDC",
+        backgroundColor: "#ffffff",
         borderRadius: 18,
         borderColor: "#C0C0C0",
         // marginBottom: 30,
         width: '100%',
         height: '90%',
+        overflow: 'hidden'
     },
     exit:{
-        position: 'absolute'
+        alignItems: 'center',
+        position: 'absolute',
+        backgroundColor: 'white',
+        borderBottomLeftRadius: 18,
+        borderBottomRightRadius: 18,
+        width: '100%',
+        padding: 20,
+        bottom: 0
     },
     scrollContainer:{
         margin: 20
@@ -167,19 +183,19 @@ export class Events extends Component<props> {
         let totalEvents = response.length;
         let infoArray = [];
         while(i < totalEvents){
-            infoArray[i] = {
-                id: response[i].id,
-                name: response[i].name,
-                desc: response[i].description,
-                startDate: response[i].startDate,
-                endDate: response[i].endDate,
-                startTime: response[i].startDate,
-                endTime: response[i].endDate,
-                location: response[i].location !== "" ? response[i].location : "TBD",
-                img: response[i].thumbUrl !== "" ? response[i].thumbUrl : "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
-                flyer: response[i].imageUrl !== "" ? response[i].imageUrl : "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
-                rsvp: 'rsvp_link'
-            };
+                infoArray[i] = {
+                    id: response[i].id,
+                    name: response[i].name,
+                    desc: response[i].description,
+                    startDate: response[i].startDate,
+                    endDate: response[i].endDate,
+                    startTime: response[i].startDate,
+                    endTime: response[i].endDate,
+                    location: response[i].location !== "" ? response[i].location : "TBD",
+                    img: response[i].thumbUrl !== "" ? response[i].thumbUrl : "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
+                    flyer: response[i].imageUrl !== "" ? response[i].imageUrl : "https://busecon.csun.edu/sites/default/files/Resu-MakeOver_Flyer_Website.png",
+                    rsvp: 'rsvp_link'
+                };
             i++;
         }
 
@@ -227,7 +243,6 @@ export class Events extends Component<props> {
     }
 
     render() {
-        const { navigate } = this.props.navigation;
         return (
             <SafeAreaView>
                 <View style={styles.logoContainer}>
@@ -237,10 +252,12 @@ export class Events extends Component<props> {
                     {this.state.eventInfo.map((prop) => {
                         return (
                             <Card style={styles.Card} key={prop.id}>
-                                <TouchableOpacity onPress={ () => this.setState({
-                                    isModalVisible: true,
-                                    selectedEvent: prop
-                                })} style={styles.imgHolder}>
+                                <TouchableOpacity
+                                    onPress={ () => this.setState({
+                                        isModalVisible: true,
+                                        selectedEvent: prop
+                                    })}
+                                    style={styles.imgHolder}>
                                     <Image style={styles.imageDisplay} source={{uri: prop.img }}/>
                                 </TouchableOpacity>
                                 <View style={styles.infoHolder}>
@@ -285,11 +302,11 @@ export class Events extends Component<props> {
                             flyer={this.state.selectedEvent.flyer}
                             rsvp={this.state.selectedEvent.rsvp}
                         />
-                        <Button
-                            title="Return to Event List"
+                        <TouchableOpacity
                             onPress={() => this._hideModal()}
-                            style={styles.exit}
-                        />
+                            style={styles.exit}>
+                                <Text style={styles.eventTitle}>Return To Event List</Text>
+                        </TouchableOpacity>
                     </SafeAreaView>
                 </Modal>
             </SafeAreaView>
