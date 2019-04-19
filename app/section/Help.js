@@ -33,7 +33,7 @@ if(size >= 320 && size <= 350){
     marginBottom = 15;
     logoWidth = 270;
     logoHeight = 28;
-}else if(size === 'large'){
+}else if(size > 400){
     marginMain = 40;
     logoWidth = 270;
     logoHeight = 28;
