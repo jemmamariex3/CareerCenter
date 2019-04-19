@@ -1,8 +1,8 @@
-// Help.js contains the onboarding content that will appear in the modal when the question mark button is selected
-// const slides is an array of objects that contain the properties needed for the onboarding element
-// AppIntroSlider passes that toggle state back up to the parent (User.js) using onDone={this.props.toggleModal2}. This allows us to hide the modal when user
-// hits done after all the slides.
-// JT 2/8/19
+/*Help.js contains the onboarding content that will appear in the modal when the question mark button is selected
+const slides is an array of objects that contain the properties needed for the onboarding element
+AppIntroSlider passes that toggle state back up to the parent (User.js) using onDone={this.props.toggleModal2}. This allows us to hide the modal when user
+hits done after all the slides.
+JT 2/8/19*/
 
 
 import React, {Component} from 'react';
@@ -17,13 +17,20 @@ const {width, height} = Dimensions.get('window')
 
 const size = iPhoneSize();
 let marginMain = 0;
+let marginLeft = 0;
+let marginBottom = 0;
 let logoWidth = 242;
 let logoHeight = 25;
 
-if(size === 'small'){
+if(size >= 320 && size <= 350){
     marginMain = 25;
-}else if(size === 'medium'){
+    marginLeft = 35;
+    marginBottom = 15;
+}else if(size >= 350 && size <= 400){
     marginMain = 40;
+    marginLeft = 45;
+    textLeft = 35;
+    marginBottom = 15;
     logoWidth = 270;
     logoHeight = 28;
 }else if(size === 'large'){
@@ -45,7 +52,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: "#ffffff",
-        marginLeft: -5
     },
     explore: {
         width: 315,
@@ -184,7 +190,7 @@ const styles = StyleSheet.create({
     service:{
         width: 215,
         height: 41,
-        marginLeft: 60
+        marginLeft: 75
     },
     event:{
         width: 207,
@@ -206,14 +212,17 @@ const styles = StyleSheet.create({
         height: logoHeight,
         justifyContent:'center',
         alignItems: 'center',
-        margin: marginMain
+        marginTop: marginMain,
+        marginLeft: marginLeft,
+        marginBottom: marginBottom
     },
     text:{
         color: '#ffffff',
         fontSize:14,
-        margin: 20,
-        marginRight:55,
-        fontWeight: "bold"
+        margin: marginMain,
+        marginLeft: textLeft,
+        fontWeight: "bold",
+        textAlign:"center"
     }
 });
 
@@ -357,9 +366,7 @@ export class Help extends Component {
         header:null
     };
 
-    // constructor(props) {
-    //     super(props);
-    // }
+    
     _renderItem = props =>(
         <LinearGradient
             style={[styles.mainContent, {

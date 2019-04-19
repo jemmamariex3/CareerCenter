@@ -28,10 +28,10 @@ let buttonHeight = 57;
 let button2Width = '90%';
 let button2Height = 57;
 
-if(size === 'medium'){
+if(size >= 350 && size <= 400){
     buttonHeight = 67;
     button2Height = 67;
-}else if(size === 'large'){
+}else if(size >= 400 && size <= 600){
     buttonHeight = 75;
     button2Height = 75;
 }
@@ -41,6 +41,7 @@ export class Users extends Component<Props> {
     };
     constructor(props){
         super(props);
+        alert(iPhoneSize())
     }
     render() {
         const { navigate } = this.props.navigation;

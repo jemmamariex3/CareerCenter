@@ -32,7 +32,6 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import {Header} from "../section/Header";
-// import Modal from "react-native-modal";
 import {Event} from "../section/Event";
 
 // TODO: Replace with official deployed events website
