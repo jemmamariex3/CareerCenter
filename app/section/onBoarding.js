@@ -8,16 +8,21 @@ import iPhoneSize from '../src/helper/utils.js'
 
 const size = iPhoneSize();
 let marginMain = 0;
+let marginLeft = 0;
+let marginBottom = 0;
 let logoWidth = 242;
 let logoHeight = 25;
 
-if(size === 'small'){
-    marginMain = 35;
-}else if(size === 'medium'){
+if(size >= 320 && size <= 350){
+    marginMain = 25;
+    marginLeft = 35;
+    marginBottom = 15;
+}else if(size >= 350 && size <= 400){
     marginMain = 40;
+    marginBottom = 15;    
     logoWidth = 270;
     logoHeight = 28;
-}else if(size === 'large'){
+}else if(size >= 400 && size <= 600){
     marginMain = 40;
     logoWidth = 270;
     logoHeight = 28;
@@ -203,15 +208,14 @@ const styles = StyleSheet.create({
     logo:{
         width: logoWidth,
         height: logoHeight,
-        margin: 30,
-        marginTop:marginMain,
-        
+        marginTop: marginMain,
+        marginBottom:marginBottom,
     },
     text:{
         color: '#ffffff',
         fontSize:14,
         margin: 20,
-        marginTop: 30,
+        textAlign:"center",        
         fontWeight: "bold"
     }
 });

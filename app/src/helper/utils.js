@@ -3,12 +3,7 @@ import React from 'react';
 import {Dimensions} from 'react-native'
 const iPhoneSize = () =>{
     const windowWidth = Dimensions.get('window').width;
-    if(windowWidth === 320){
-        return 'small'; //iPhone SE
-    }else if(windowWidth === 414){
-        return 'large';// iphone plus
-    }
-    return 'medium' //iphone6/7
+    return windowWidth //iphone6/7
 }
 
 export default iPhoneSize;

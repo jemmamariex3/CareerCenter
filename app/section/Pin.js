@@ -9,7 +9,7 @@ import iPhoneSize from '../src/helper/utils.js'
 const size = iPhoneSize();
 let titleSize = 14;
 let infoSize = 12;
-if(size === 'small'){
+if(size >= 320 && size <= 350){
     titleSize = 12;
     infoSize = 11;
 }

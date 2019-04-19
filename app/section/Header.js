@@ -14,10 +14,17 @@ const size = iPhoneSize();
 let logoWidth = 220;
 let logoHeight = 22;
 
-// if(size === 'small'){
-//     width: '100%'
-// }
-
+if(size >= 320 && size <= 350){
+    // marginMain = 35;
+}else if(size >= 350 && size <= 400){
+    // marginMain = 40;
+    logoWidth = 270;
+    logoHeight = 28;
+}else if(size >= 400 && size <= 600){
+    // marginMain = 40;
+    logoWidth = 270;
+    logoHeight = 28;
+}
 export class Header extends Component<Props> {
     static navigationOptions = {
         header:null

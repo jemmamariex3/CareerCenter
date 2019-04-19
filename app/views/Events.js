@@ -27,11 +27,11 @@ import {
     Image,
     View,
     TouchableOpacity,
-    Text
+    Text,
+    Modal
 } from 'react-native';
 import axios from 'axios';
 import {Header} from "../section/Header";
-import Modal from "react-native-modal";
 import {Event} from "../section/Event";
 
 // TODO: Replace with official deployed events website
@@ -283,7 +283,7 @@ export class Events extends Component<props> {
                     })}
                 </ScrollView>
                 <Modal
-                    isVisible={this.state.isModalVisible}
+                    visible={this.state.isModalVisible}
                     // animationType = "fade"
                     onBackdropPress={() => this._hideModal()}
                     // backdropOpacity={.50}
