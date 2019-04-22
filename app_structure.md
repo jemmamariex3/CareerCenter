@@ -5,47 +5,26 @@
 
 CareerCenter
 
-|--android
-
-|--app
-
-|--data
-
-|--img
-
-|--section
-
-   |--skillsContent
-
-   |--Event.js
-
-   |--LogoTitle.js
-
-   |--StackNav.js
-
-   |--TabNav.js
-
-|--views
-
-   |--Cinthy.js
-
-   |--Events.js
-
-   |--Help.js
-
-   |--Multimeda.js
-
-   |--Pin.js
-
-   |--Users.js
-
-|--ios
-
-|--App.js
-
-|--index.js
-
-
+  |--android
+  |--app
+  |--data
+  |--img
+  |--section
+    |--skillsContent
+    |--Event.js
+    |--LogoTitle.js
+    |--StackNav.js
+    |--TabNav.js
+  |--views
+    |--Cinthy.js
+    |--Events.js
+    |--Help.js
+    |--Multimeda.js
+    |--Pin.js
+    |--Users.js
+  |--ios
+  |--App.js
+  |--index.js
 
 We will work directly with the app directory.
 
